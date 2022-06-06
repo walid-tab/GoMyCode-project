@@ -18,7 +18,7 @@ exports.addJob= async (req,res)=>{
 // API : /updateJob/:id
 exports.updateJob= async (req,res)=>{
     try {
-        const updatedJob = await Offres.findByIdAndUpdate(req.params.id,{$set:req.body});        
+        const updatedJob = await Offres.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});        
         res.status(200).send({msg:"Job updated successfully",updatedJob})
     } catch (error) {
         res.status(400).send('could not update')
@@ -29,8 +29,8 @@ exports.updateJob= async (req,res)=>{
 // API : /deleteJob/:id
 exports.deleteJob= async (req,res)=>{
     try {
-        const deletedJob = await Offres.findByIdAndDelete(req.params.id);        
-        res.status(200).send({msg:"Job deleted ",deletedJob})
+        await Offres.findByIdAndDelete(req.params.id);        
+        res.status(200).send({msg:"Job deleted "})
     } catch (error) {
         res.status(400).send('could not delete')
     }

@@ -16,8 +16,8 @@ connectDB();
 app.use(express.json())
 app.use('/api/authUser',authUserRouter) 
 app.use('/api/authRec',authRecruteurRouter)
+app.use('/api/accountUser',candidatRouter)
 app.use('/api/allJobs',candidatRouter)
-//app.use('/api/accountUser',candidatRouter)
 app.use('/api/accountRec',recruteurRouter)
 
 

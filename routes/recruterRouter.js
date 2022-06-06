@@ -6,16 +6,16 @@ const recruteurRouter = express.Router()
 
 // Modifier Profil
 // mothod update
-//recruteurRouter.put('/updateAccountRec/:id',updateAccountRec)
+recruteurRouter.put('/updateAccountRec',isAuthRec,updateAccountRec)
 
 // suprimer compte
 // mothod delete
-//recruteurRouter.delete('/deleteAccoutRec/:id',deleteAccountRec)
+recruteurRouter.delete('/deleteAccoutRec',isAuthRec,deleteAccountRec)
 
 
 //Ajouter offre
 //method post
-recruteurRouter.post('/addJob',isAuthRec,addJob)
+recruteurRouter.post('/addJob',isAuthRec,addJob) 
 
 //Supprimer Offre
 //method delete

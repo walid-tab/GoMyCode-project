@@ -21,6 +21,10 @@ const offreSchema = new mongoose.Schema({
     },
     dateOuverture : Date,
     dateFermeture : Date,
+    PostCandidature: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Candidature"
+    }]
 
 })
 

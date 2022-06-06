@@ -1,21 +1,23 @@
-const candidatSchema = require('../models/Candidat')
+const users = require("../models/Candidat")
+
+
 // method Delete
-// API : /delete/:id
+// API : /deleteccountCand
 exports.deleteAccountCand=async(req,res)=>{
     try {
-        const deleted= await candidatSchema.findByIdAndDelete(req.params.id)
-        res.status(400).res({msg:"account deleted",deleted})
+     await users.findByIdAndDelete(req.user._id)
+        res.status(200).send({msg:"account deleted",})
     } catch (error) {
-        res.status(200).send({msg:"could not delete"})
+        res.status(400).send({msg:"could not delete"}) 
     }
 }
 
 // method Update
-// API : /update/:id
+// API : /updateAccountCand
 exports.updateAccountCand=async(req,res)=>{
     try {
-        const updated= await candidatSchema.findByIdAndUpdate(req.params.id,{$set:req.body})
-    res.status(200).res({msg:"account updated successfully",updated})        
+        const updated= await users.findByIdAndUpdate(req.user._id,{$set:req.body},{new:true})
+    res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
         res.status(400).send({msg:"could not update"})
         

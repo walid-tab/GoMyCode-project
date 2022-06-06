@@ -1,22 +1,26 @@
-const recruteurSchema = require('../models/Recruteur')
+const Offres = require('../models/Offre')
+const Recruteurs = require('../models/Recruteur')
 
 // method Delete
-// API : /deleteAccountRec/:id
+// API : /deleteAccountRec
 exports.deleteAccountRec=async(req,res)=>{
     try {
-        const deleted= await recruteurSchema.findByIdAndDelete(req.params.id)
-        res.status(400).res({msg:"account deleted",deleted})
+        await Recruteurs.findByIdAndDelete(req.Recruteur._id)
+        await Offres.deleteMany({recruteurId:req.Recruteur._id})
+        res.status(200).send({msg:"account deleted"})
     } catch (error) {
-        res.status(200).send({msg:"could not delete"})
+        res.status(400).send({msg:"could not delete"})
     }
 }
 
 // method Update
-// API : /updateAccountRec/:id
+// API : /updateAccountRec
 exports.updateAccountRec=async(req,res)=>{
+    
     try {
-        const updated= await recruteurSchema.findByIdAndUpdate(req.params.id,{$set:req.body})
-    res.status(200).res({msg:"account updated successfully",updated})        
+        
+        const updated=  await Recruteurs.findByIdAndUpdate(req.Recruteur._id,{$set:req.body},{new:true})
+    res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
         res.status(400).send({msg:"could not update"})
         
