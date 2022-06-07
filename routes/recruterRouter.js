@@ -1,5 +1,5 @@
 const express = require('express');
-const { addJob, getMyJobs, updateJob, deleteJob } = require('../controllers/offreController');
+const { addJob, getMyJobs, updateJob, deleteJob, getCvCandidat, getAllCandidatures } = require('../controllers/offreController');
 const { updateAccountRec, deleteAccountRec } = require('../controllers/recruteurCrudController');
 const { isAuthRec } = require('../middlewares/ValidationRec');
 const recruteurRouter = express.Router()
@@ -29,12 +29,12 @@ recruteurRouter.put('/updateJob/:id',isAuthRec,updateJob)
 //method get
 recruteurRouter.get('/myJobs',isAuthRec,getMyJobs)
 
-//Rechercher un CV
+//Rechercher un CV candidat
 //method get 
-//recruteurRouter.get('/candidats/:id',getCandidat)
+recruteurRouter.get('/CVcandidats',isAuthRec,getCvCandidat)
 
 //Consulter les candidatures réçus
 //method get
-//recruteurRouter.get('/candidatures/:id',getAllCandidatures)
+recruteurRouter.get('/candidatures/:id',isAuthRec,getAllCandidatures)
 
 module.exports = recruteurRouter;

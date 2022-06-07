@@ -1,5 +1,6 @@
 const Offres = require("../models/Offre");
-
+const users  = require('../models/Candidat');
+const Candidatures = require("../models/Candidature");
 
 
 // method POST
@@ -36,7 +37,6 @@ exports.deleteJob= async (req,res)=>{
     }
 }
 
-
 // method GET
 // API : /allJobs
 exports.getAllJobs = async(req,res)=>{
@@ -60,3 +60,43 @@ exports.getMyJobs = async(req,res)=>{
     }
 }
 
+// method GET
+// API : /CVcandidats 
+
+exports.getCvCandidat = async(req,res)=>{
+    try {
+        const allCandidats = await users.find().select("-password")
+        res.status(200).send({msg:"list of Candidats",allCandidats})
+    } catch (error) {
+        res.status(400).send('could not get Candidats')        
+    }
+}
+//method POST
+// API :/postuler/:id
+exports.postJob = async(req,res)=>{
+    
+    try {
+        const foundCandidat = await Candidatures.findOne({candidatId:req.user.id, offreId:req.params.id})
+        if(foundCandidat){
+           return  res.status(400).send('Candidat exist could not post again')
+        } 
+        
+        const postuler = await new Candidatures({...req.body, candidatId:req.user.id,offreId:req.params.id})
+        await postuler.save();
+        res.status(200).send({msg:"Post job seccessfuly",postuler})
+        
+    } catch (error) {
+        res.status(400).send('could not post job')
+    }
+}
+
+//method GET
+// API : /candidatures/:id
+exports.getAllCandidatures = async(req,res)=>{
+    try {
+        const offreCandidats = await Candidatures.find({offreId:req.params.id}).populate('candidatId',["email"])
+        res.status(200).send({msg:"list of candidats in this job",offreCandidats})
+    } catch (error) {
+        res.status(400).send('could not get informations of candidats')        
+    }
+}

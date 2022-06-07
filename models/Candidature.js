@@ -22,6 +22,10 @@ const candidatureSchema = new mongoose.Schema(
         type:mongoose.Schema.Types.ObjectId,
         ref:"Offre"
     },
+    candidatId : {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
+    },
 
 })
 module.exports = mongoose.model('Candidature',candidatureSchema)

@@ -1,3 +1,4 @@
+const Candidatures = require('../models/Candidature')
 const Offres = require('../models/Offre')
 const Recruteurs = require('../models/Recruteur')
 

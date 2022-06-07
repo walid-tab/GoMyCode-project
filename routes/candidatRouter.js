@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllJobs } = require('../controllers/offreController');
+const { getAllJobs, postJob } = require('../controllers/offreController');
 const { updateAccountCand, deleteAccountCand } = require('../controllers/userCrudController');
 const { isAuth } = require('../middlewares/validationUser');
 const candidatRouter = express.Router()
@@ -16,13 +16,9 @@ candidatRouter.delete('/deleteAccountCand',isAuth,deleteAccountCand)
 //method get
 candidatRouter.get('/',getAllJobs)
 
-//Consuler les offres
-//method get
-//candidatRouter.get('/offres/:id',getOneJob)
-
 //Postuler pour un offre
 //method post
-//candidatRouter.post('/postuler/:id',postJob)
+candidatRouter.post('/postuler/:id',isAuth,postJob)
 
 
 module.exports = candidatRouter;
