@@ -16,7 +16,7 @@ const candidatSchema = new mongoose.Schema(
         {
             type: String,
             required: true,
-            unique: true,
+            unique: true, 
         },
     password:
         {
@@ -29,7 +29,10 @@ const candidatSchema = new mongoose.Schema(
             required: true,
         },
     age:Number,
-    adress : String,  
+    adress : {
+        type: String,
+        trim: true
+    },  
     imageCand:String, 
     role:{
         type:String,enum:['user','admin'],default:"user"

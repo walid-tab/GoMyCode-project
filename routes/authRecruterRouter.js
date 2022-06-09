@@ -1,6 +1,7 @@
 const express = require('express');
 const { registerRec, loginRec } = require('../controllers/recruteurController');
 const { registerValidationRec, validationRec, loginValidationRec } = require('../middlewares/AuthRec');
+const { isAuthRec } = require('../middlewares/ValidationRec');
 const authRecruteurRouter = express.Router()
 
 //Register
@@ -11,5 +12,9 @@ authRecruteurRouter.post('/registerRec',registerValidationRec,validationRec,regi
 //method post
 authRecruteurRouter.post('/loginRec',loginValidationRec,validationRec,loginRec)
 
+//method get
+authRecruteurRouter.get('/current',isAuthRec,(req, res, next)=>{
+    res.send({Recruteur:req.Recruteur})
+})
 
 module.exports = authRecruteurRouter;

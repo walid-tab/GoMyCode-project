@@ -1,8 +1,12 @@
 const express = require('express');
 const { addJob, getMyJobs, updateJob, deleteJob, getCvCandidat, getAllCandidatures } = require('../controllers/offreController');
-const { updateAccountRec, deleteAccountRec } = require('../controllers/recruteurCrudController');
+const { updateAccountRec, deleteAccountRec, getMyProfilRec } = require('../controllers/recruteurCrudController');
 const { isAuthRec } = require('../middlewares/ValidationRec');
 const recruteurRouter = express.Router()
+
+//Afficher Mon profil
+//method get 
+recruteurRouter.get('/myProfilRec/:id',isAuthRec,getMyProfilRec)
 
 // Modifier Profil
 // mothod update

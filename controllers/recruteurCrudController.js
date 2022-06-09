@@ -1,7 +1,16 @@
-const Candidatures = require('../models/Candidature')
 const Offres = require('../models/Offre')
 const Recruteurs = require('../models/Recruteur')
 
+//method Get
+//API : /myProfilRec/:id
+exports.getMyProfilRec=async(req,res)=>{
+    try {
+        const myInfo = await Recruteurs.findById(req.params.id)
+        res.status(200).send({msg:"My info : ",myInfo})
+    } catch (error) {
+        res.status(400).send('could not get recruteur info')        
+    }
+}
 // method Delete
 // API : /deleteAccountRec
 exports.deleteAccountRec=async(req,res)=>{

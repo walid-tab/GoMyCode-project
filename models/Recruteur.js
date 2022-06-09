@@ -24,8 +24,14 @@ const recruteurSchema = new mongoose.Schema(
                 type: Number,
                 required: true,
             },
-        adress : String,
-        description: String,   
+        adress : {
+            type:String,
+            trim: true
+        },
+        description: {
+            type: String,
+            trim: true
+        },   
         imageRec:String,
        
     })

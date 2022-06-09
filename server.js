@@ -1,12 +1,13 @@
 const express = require('express');
 const connectDB = require('./Config/connectDB');
+const adminRouter = require('./routes/adminRouter');
 const authRecruteurRouter = require('./routes/authRecruterRouter');
 const authUserRouter = require('./routes/authUserRouter');
 const candidatRouter = require('./routes/candidatRouter');
 const recruteurRouter = require('./routes/recruterRouter');
 
 const app = express()
-port = process.env.PORT || 5000;
+port = process.env.PORT || 5000; 
 
 
 //db connection
@@ -19,6 +20,7 @@ app.use('/api/authRec',authRecruteurRouter)
 app.use('/api/accountUser',candidatRouter)
 app.use('/api/allJobs',candidatRouter)
 app.use('/api/accountRec',recruteurRouter)
+app.use('/api/admin',adminRouter)
 
 
 

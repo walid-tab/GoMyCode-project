@@ -41,7 +41,7 @@ exports.deleteJob= async (req,res)=>{
 // API : /allJobs
 exports.getAllJobs = async(req,res)=>{
     try {
-        const allJobs = await Offres.find().populate('recruteurId')
+        const allJobs = await Offres.find().populate('recruteurId',"-password")
         res.status(200).send({msg:"list of Jobs",allJobs})
     } catch (error) {
         res.status(400).send('could not get Jobs')        
@@ -65,7 +65,7 @@ exports.getMyJobs = async(req,res)=>{
 
 exports.getCvCandidat = async(req,res)=>{
     try {
-        const allCandidats = await users.find().select("-password")
+        const allCandidats = await users.find({role:"user"}).select("-password")
         res.status(200).send({msg:"list of Candidats",allCandidats})
     } catch (error) {
         res.status(400).send('could not get Candidats')        
@@ -79,8 +79,7 @@ exports.postJob = async(req,res)=>{
         const foundCandidat = await Candidatures.findOne({candidatId:req.user.id, offreId:req.params.id})
         if(foundCandidat){
            return  res.status(400).send('Candidat exist could not post again')
-        } 
-        
+        }        
         const postuler = await new Candidatures({...req.body, candidatId:req.user.id,offreId:req.params.id})
         await postuler.save();
         res.status(200).send({msg:"Post job seccessfuly",postuler})
@@ -94,7 +93,7 @@ exports.postJob = async(req,res)=>{
 // API : /candidatures/:id
 exports.getAllCandidatures = async(req,res)=>{
     try {
-        const offreCandidats = await Candidatures.find({offreId:req.params.id}).populate('candidatId',["email"])
+        const offreCandidats = await Candidatures.find({offreId:req.params.id}).populate('candidatId',["email","numTel"])
         res.status(200).send({msg:"list of candidats in this job",offreCandidats})
     } catch (error) {
         res.status(400).send('could not get informations of candidats')        
