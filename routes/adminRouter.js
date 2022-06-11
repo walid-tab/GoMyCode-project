@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllRecruteurs, deleteUser, deleteRecruteur } = require('../controllers/adminController');
+const { getAllRecruteurs, deleteUser, deleteRecruteur, getMsgs, deleteMsg } = require('../controllers/adminController');
 const { getAllJobs, deleteJob, getCvCandidat } = require('../controllers/offreController');
 const adminRouter = express.Router();
 const { isAdmin } = require('../middlewares/AuthAdmin');
@@ -31,11 +31,11 @@ adminRouter.get('/allJobs',isAuth,isAdmin,getAllJobs)
 adminRouter.delete('/deleteOffre/:id',isAuth,isAdmin,deleteJob) 
 //Consulter les messages 
 //method get
+adminRouter.get('/allMessages',isAuth,isAdmin,getMsgs)
 
-//Consulter un seul message
-//method get
-
-//Supprimer un msg Contact Us
+//Supprimer un msg 
 //method delete
+adminRouter.delete('/deleteMessage/:id',isAuth,isAdmin,deleteMsg)
+
 
 module.exports = adminRouter;

@@ -1,6 +1,7 @@
 const users  = require('../models/Candidat');
 const Recruteurs = require('../models/Recruteur');
-const Offres = require('../models/Offre')
+const Offres = require('../models/Offre');
+const contacts = require('../models/ContactUs');
 
 
 // method DELETE
@@ -33,4 +34,27 @@ exports.deleteRecruteur=async(req,res)=>{
     } catch (error) {
         res.status(400).send({msg:"could not delete"})
     }
+}
+//method GET 
+//API : /allMessages
+exports.getMsgs = async(req,res)=>{
+    try {
+        const msgs = await contacts.find()
+        res.status(200).send({msg:"list of messages",msgs})
+    } catch (error) {
+        res.status(400).send('could not get messages')        
+    } 
+}
+
+//method DELETE
+// API : /deleteMessage/:id
+exports.deleteMsg=async(req,res)=>{
+    try {
+        await contacts.findByIdAndDelete(req.params.id)
+        res.status(200).send({msg:"Message deleted"})
+    } catch (error) {
+        res.status(400).send('could not delete message')        
+
+    }
+
 }

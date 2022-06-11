@@ -1,5 +1,7 @@
 const Offres = require('../models/Offre')
 const Recruteurs = require('../models/Recruteur')
+const bcrypt = require("bcrypt");
+
 
 //method Get
 //API : /myProfilRec/:id
@@ -25,14 +27,27 @@ exports.deleteAccountRec=async(req,res)=>{
 
 // method Update
 // API : /updateAccountRec
-exports.updateAccountRec=async(req,res)=>{
-    
+exports.updateAccountRec=async(req,res)=>{    
     try {
         
         const updated=  await Recruteurs.findByIdAndUpdate(req.Recruteur._id,{$set:req.body},{new:true})
     res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
-        res.status(400).send({msg:"could not update"})
-        
+        res.status(400).send({msg:"could not updated"})        
+    }
+}
+
+// method Update
+// API : /updatePasswordRec
+exports.updatePassRec=async(req,res)=>{
+   
+    try {
+        const salt = 10;
+        const password = bcrypt.hashSync(req.body.password,salt)
+        const updatedPassRec= await Recruteurs.findByIdAndUpdate(req.Recruteur._id, {password:password},{new:true})
+
+    res.status(200).send({msg:"password updated successfully",updatedPassRec})        
+    } catch (error) {
+        res.status(400).send({msg:"password not updated"})        
     }
 }
