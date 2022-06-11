@@ -34,6 +34,7 @@ const candidatSchema = new mongoose.Schema(
         trim: true
     },  
     imageCand:String, 
+    cvCand:String, 
     role:{
         type:String,enum:['user','admin'],default:"user"
     }
