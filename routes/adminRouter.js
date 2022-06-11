@@ -29,5 +29,13 @@ adminRouter.get('/allJobs',isAuth,isAdmin,getAllJobs)
 //Supprimer un Offre
 //method delete
 adminRouter.delete('/deleteOffre/:id',isAuth,isAdmin,deleteJob) 
+//Consulter les messages 
+//method get
+
+//Consulter un seul message
+//method get
+
+//Supprimer un msg Contact Us
+//method delete
 
 module.exports = adminRouter;
