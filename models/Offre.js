@@ -30,7 +30,7 @@ const offreSchema = new mongoose.Schema({
     },
     dateFermeture : {
         type: "date"  
-}, 
+    },
     
 
 })

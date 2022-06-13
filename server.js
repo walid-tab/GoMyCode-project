@@ -21,9 +21,7 @@ app.use('/api/accountUser',candidatRouter)
 app.use('/api/allJobs',candidatRouter)
 app.use('/api/accountRec',recruteurRouter)
 app.use('/api/admin',adminRouter)
-app.use('/api/guest',guestRouter)
-
-
+app.use('/api/guest',guestRouter) 
 
 
 

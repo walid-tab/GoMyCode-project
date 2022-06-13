@@ -30,7 +30,7 @@ exports.deleteAccountRec=async(req,res)=>{
 exports.updateAccountRec=async(req,res)=>{    
     try {
         
-        const updated=  await Recruteurs.findByIdAndUpdate(req.Recruteur._id,{$set:req.body},{new:true})
+        const updated=  await Recruteurs.findByIdAndUpdate(req.Recruteur._id,{$set:{...req.body,imageRec:req.file.filename}},{new:true})
     res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
         res.status(400).send({msg:"could not updated"})        

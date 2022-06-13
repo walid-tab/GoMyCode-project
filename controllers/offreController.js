@@ -4,8 +4,9 @@ const Candidatures = require("../models/Candidature");
 
 
 // method POST
-// API : /addUser
+// API : /addJob
 exports.addJob= async (req,res)=>{
+    
     try {
         const newJob = new Offres({...req.body, recruteurId : req.Recruteur.id});
         await newJob.save();

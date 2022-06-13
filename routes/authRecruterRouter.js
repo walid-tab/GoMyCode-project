@@ -13,7 +13,7 @@ authRecruteurRouter.post('/registerRec',registerValidationRec,validationRec,regi
 authRecruteurRouter.post('/loginRec',loginValidationRec,validationRec,loginRec)
 
 //method get
-authRecruteurRouter.get('/current',isAuthRec,(req, res, next)=>{
+authRecruteurRouter.get('/currentRec',isAuthRec,(req, res, next)=>{
     res.send({Recruteur:req.Recruteur})
 })
 
