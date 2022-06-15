@@ -21,8 +21,7 @@ const recruteurSchema = new mongoose.Schema(
             },
         numContact :
             {
-                type: Number,
-                required: true,
+                type: Number
             },
         adress : {
             type:String,

@@ -2,23 +2,26 @@ import { FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTy
 import axios from 'axios'
 
 //Register Candidat
-export const register =(nuwUser, navigate)=>async(dispatch)=>{
-    dispatch({type:LOADING})
+export const register =(newUser, navigate)=>async(dispatch)=>{
+     dispatch({type:LOADING})
 try {
-    const res = await axios.post('/api/authUser/register',nuwUser)
+    const res = await axios.post('/api/authUser/register',newUser)
+    
     dispatch({type:REGISTER, payload:res.data})
-    navigate('/myProfilUser')
+    navigate('/')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
 }
 //Login candidat
 export const login =(user, navigate)=>async(dispatch)=>{
+    
 dispatch({type:LOADING})
 try {
     const res = await axios.post('/api/authUser/login',user)
     dispatch({type:LOGIN, payload: res.data})
-    navigate('/myProfilUser')
+    
+    navigate('/')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }

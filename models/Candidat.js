@@ -25,7 +25,7 @@ const candidatSchema = new mongoose.Schema(
     numTel :
         {
             type: Number,
-            required: true,
+          
         },
     age:Number,
     adress : {
