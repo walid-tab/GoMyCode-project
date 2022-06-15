@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { loginRec, registerRec } from '../JS/Actions/recAction'
+import { loginRec } from '../JS/Actions/recAction'
+import RegisterRec from './RegisterRec'
 
 
-function LoginRec() {
-	
-	const [recruteurName,setRecruteurName] = useState("")
+function LoginRec() {	
+
 	const [email, setEmail] = useState("")
 	const [password, setPasswod] = useState("")
 	const dispatch=useDispatch()
@@ -53,28 +53,10 @@ function LoginRec() {
             </div>
         </form>
       </div>
+      
         <div className="signup-form">
           <div className="title">Signup</div>
-        <form action="#">
-            <div className="input-boxes">
-              <div className="input-box">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required onChange={(e)=>setRecruteurName(e.target.value)} value={recruteurName}/>
-              </div>
-              <div className="input-box">
-                <i className="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required onChange={(e)=>setEmail(e.target.value)} value={email}/>
-              </div>
-              <div className="input-box">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required onChange={(e)=>setPasswod(e.target.value)} value={password}/>
-              </div>
-              <div className="button input-box">
-                <input type="submit" value="Sumbit" onClick={()=>dispatch(registerRec({recruteurName,email,password}, navigate))}/>
-              </div>
-              <div className="text sign-up-text">Already have an account? <label htmlFor="flip">Login now</label></div>
-            </div>
-      </form>
+       <RegisterRec/>
     </div>
     </div>
     </div>

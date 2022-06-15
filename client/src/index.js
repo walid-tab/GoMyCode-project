@@ -5,6 +5,9 @@ import {BrowserRouter} from 'react-router-dom'
 import './components/StyleCss/Nav.css'
 import './components/StyleCss/RegisterLogin.css'
 import './components/StyleCss/ContactUs.css'
+import './components/StyleCss/Cardcss.css'
+import './components/StyleCss/Loader.css'
+
 import { Provider } from 'react-redux';
 import { store } from './JS/Store';
 

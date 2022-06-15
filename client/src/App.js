@@ -4,6 +4,7 @@ import Home from './components/Home'
 import LoginUser from './components/LoginUser'
 import LoginRec from "./components/LoginRec";
 import ContactUs from "./components/ContactUs";
+import JobsList from "./components/JobsList";
 
 
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/AccountUser" element={<LoginUser/>}/>        
         <Route path="/AccountRec" element={<LoginRec/>}/>
         <Route path="/Contact" element={<ContactUs/>}/>
-        <Route path="/Jobs" element={<ContactUs/>}/>
+        <Route path="/Jobs" element={<JobsList/>}/>
       </Routes>
     </div>
   );
