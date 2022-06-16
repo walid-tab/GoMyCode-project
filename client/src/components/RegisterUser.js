@@ -11,7 +11,7 @@ const dispatch=useDispatch()
 const navigate=useNavigate()
   return (
     <div>
-         <form action="#">
+         <form >
             <div className="input-boxes">
               <div className="input-box">
                 <i className="fas fa-user"></i>
@@ -26,7 +26,7 @@ const navigate=useNavigate()
                 <input type="password" placeholder="Enter your password" required onChange={(e)=>setPasswod(e.target.value)} value={password}/>
               </div>
               <div className="button input-box">
-                <input type="submit" value="Sumbit" onClick={()=>dispatch(register({firstName,email,password}, navigate))}/>
+                <input  value="Sumbit" onClick={()=>dispatch(register({firstName,email,password}, navigate))}/>
               </div>
               <div className="text sign-up-text">Already have an account? <label htmlFor="flip">Login now</label></div>
             </div>

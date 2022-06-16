@@ -21,7 +21,7 @@ nav{
 	padding-left: 8%;
 	padding-right: 8%;
 }
-.logo{
+.logo1{
 	color: white;
 	font-size: 35px;
 	letter-spacing: 1px;
@@ -63,7 +63,33 @@ nav ul li .titreNav{
 	transform: scale(1.2);
 }
 
-
+@media only screen and (max-width: 650px){
+	nav{
+		display: flex;
+	align-items: flex-start;	
+	}
+	.btn{ 
+		display: flex;
+		align-items: flex-start;
+		
+		
+	}
+	.navgation{
+		position: static;
+		max-width: 100%;
+		top: 0;
+	}
+	.logo1 {
+		text-align: right;
+		margin: 5px;
+	}
+	nav ul li .titreNav{
+		font-size: smaller;
+		margin: 0;
+		padding: 0;
+		
+	}
+}
 
 
 

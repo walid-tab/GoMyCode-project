@@ -35,7 +35,7 @@ function LoginRec() {
         <div className="form-content">
           <div className="login-form">
             <div className="title">Login</div>
-          <form action="#">
+          <form >
             <div className="input-boxes">
               <div className="input-box">
                 <i className="fas fa-envelope"></i>
@@ -47,7 +47,7 @@ function LoginRec() {
               </div>
              
               <div className="button input-box">
-                <input type="submit" value="Sumbit"  onClick={()=>dispatch(loginRec({email,password}, navigate))} />
+                <input  value="Sumbit"  onClick={()=>dispatch(loginRec({email,password}, navigate))} />
               </div>
               <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Sigup now</label></div>
             </div>

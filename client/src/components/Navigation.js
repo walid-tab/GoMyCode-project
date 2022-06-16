@@ -10,7 +10,7 @@ function Navigation() {
     <div className='navgation'>
      <div className="hero">
 		<nav>
-			<h2 className="logo">Find<span className="logo2">Job</span></h2>
+			<h2 className="logo1">Find<span className="logo2">Job</span></h2>
 			<ul>
 				<li><Link  className='titreNav'to='/'>Home</Link></li>
 				<li><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}>Jobs</Link></li>

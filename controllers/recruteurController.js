@@ -12,20 +12,17 @@ exports.registerRec=async(req,res)=>{
         if (found){
             res.status(400).send({msg:"Recruteur already exist"})
         }
-        const newRec= new Recruteurs(req.body)
-        
+        const newRec= new Recruteurs(req.body)         
         //bycrypt : cryptage password
         const salt = 10;
         const hashPassword = bcrypt.hashSync(password, salt)
         newRec.password = hashPassword
        
         //jwt
-        const payload = {id:newRec._id}
-        
-        const token = jwt.sign(payload,process.env.secretOrKey)
-        console.log(req.body)
+        const payload = {id:newRec._id}        
+        const token = jwt.sign(payload,process.env.secretOrKey)       
         await newRec.save()
-                
+        
         res.status(200).send({msg:"registred with success",newRec, token}) 
     } catch (error) {
         res.status(500).send({msg:'could not register'})

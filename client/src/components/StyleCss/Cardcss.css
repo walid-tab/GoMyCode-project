@@ -44,7 +44,7 @@
   justify-content: center;
 }
 
-img {
+.ImgCard {
   height: 8.3rem;
   width: 8.3rem;
   position: relative;

@@ -27,7 +27,7 @@ function RegisterRec() {
                 <input type="password" placeholder="Enter your password" required onChange={(e)=>setPasswod(e.target.value)} value={password}/>
               </div>
               <div className="button input-box">
-                <input type="submit" value="Sumbit" onClick={()=>dispatch(registerRec({recruteurName,email,password}, navigate))}/>
+                <input  value="Sumbit" onClick={()=>dispatch(registerRec({recruteurName,email,password}, navigate))}/>
               </div>
               <div className="text sign-up-text">Already have an account? <label htmlFor="flip">Login now</label></div>
             </div>

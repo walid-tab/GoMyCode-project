@@ -43,7 +43,7 @@ const navigate=useNavigate()
               </div>
              
               <div className="button input-box">
-                <input type="submit" value="Sumbit"  onClick={()=>dispatch(login({email,password}, navigate))} />
+                <input  value="Sumbit"  onClick={()=>dispatch(login({email,password}, navigate))} />
               </div>
               <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Sigup now</label></div>
             </div>

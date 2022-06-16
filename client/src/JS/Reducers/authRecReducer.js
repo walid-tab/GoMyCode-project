@@ -3,7 +3,7 @@ import { GET_CURRENT_REC, LOGIN_REC, LOGOUT,REGISTER_REC } from "../actionTypes"
 const initialState = {
     authRec:false,
     load:true,
-    recruiter:null
+    Recruteur:null
 };
 
 const authRecReducer = (state = initialState, { type, payload }) => {
@@ -11,15 +11,15 @@ const authRecReducer = (state = initialState, { type, payload }) => {
 
   case REGISTER_REC:
       localStorage.setItem('token', payload.token )
-    return { ...state, authRec:true, load:false, recruiter: payload.newRec}
+    return { ...state, authRec:true, load:false, Recruteur: payload.newRec}
     case LOGIN_REC:
         localStorage.setItem('token', payload.token )
-        return { ...state, authRec:true, load:false, recruiter: payload.foundRec}
+        return { ...state, authRec:true, load:false, Recruteur: payload.foundRec}
      case GET_CURRENT_REC:
-        return { ...state, authRec:true, load:false, recruiter: payload.recruiter}
+        return { ...state, authRec:true, load:false, Recruteur: payload.Recruteur}
     case LOGOUT :
       localStorage.removeItem('token')
-      return {...state, authRec:false, load:false, recruiter:null}
+      return {...state, authRec:false, load:false, Recruteur:null}
 
   default:
     return state

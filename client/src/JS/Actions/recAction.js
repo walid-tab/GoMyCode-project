@@ -15,10 +15,10 @@ try {
 }
 }
 //Login Recruiter
-export const loginRec =(recruiter, navigate)=>async(dispatch)=>{
+export const loginRec =(Recruteur, navigate)=>async(dispatch)=>{
 dispatch({type:LOADING})
 try {
-    const res = await axios.post('/api/authRec/loginRec',recruiter)
+    const res = await axios.post('/api/authRec/loginRec',Recruteur)
     dispatch({type:LOGIN_REC, payload: res.data})
     navigate('/')
 } catch (error) {

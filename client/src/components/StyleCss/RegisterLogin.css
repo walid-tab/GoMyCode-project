@@ -175,13 +175,15 @@
 .forms .form-content .button input{
   color: #fff;
   background:  #3AB0FF;
+  text-align: center;
   border-radius: 6px;
   padding: 0;
+  
   cursor: pointer;
   transition: all 0.4s ease;
 }
 .forms .form-content .button input:hover{
-  background: #4CACBC;
+  background: #39c0c2;
 }
 .forms .form-content label{
   color: #242F9B;
