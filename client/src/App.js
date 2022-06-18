@@ -1,14 +1,26 @@
 import Navigation from "./components/Navigation";
 import { Route, Routes } from "react-router-dom";
+
 import Home from './components/Home'
 import LoginUser from './components/LoginUser'
 import LoginRec from "./components/LoginRec";
 import ContactUs from "./components/ContactUs";
 import JobsList from "./components/JobsList";
+import ProfilCand from "./components/UserPages/ProfilCand";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getCurrent } from "./JS/Actions/userAction";
+import PrivateRoute from "./components/Private/PrivateRoute";
+//  import { getCurrentRec } from "./JS/Actions/recAction";
 
-
+ 
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCurrent())
+  }, [dispatch])
+
   return (
     <div className="App">
       <Navigation/>
@@ -19,6 +31,15 @@ function App() {
         <Route path="/AccountRec" element={<LoginRec/>}/>
         <Route path="/Contact" element={<ContactUs/>}/>
         <Route path="/Jobs" element={<JobsList/>}/>
+        <Route path="/ProfilCand" element={
+          <PrivateRoute>
+            <ProfilCand/>
+          </PrivateRoute>
+        }
+        />
+        
+
+
       </Routes>
     </div>
   );

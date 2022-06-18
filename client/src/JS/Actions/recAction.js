@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FAIL, GET_CURRENT, LOADING, LOGIN_REC, LOGOUT, REGISTER_REC } from '../actionTypes'
+import { FAIL, GET_CURRENT_REC, LOADING, LOGIN_REC, LOGOUT, REGISTER_REC } from '../actionTypes'
 
 //Register Recruiter
 export const registerRec =(newRec, navigate)=>async(dispatch)=>{
@@ -9,7 +9,7 @@ try {
     const res = await axios.post('/api/authRec/registerRec',newRec)
     console.log(res.data)
     dispatch({type:REGISTER_REC, payload:res.data})
-    navigate('/')
+    navigate('/ProfilRec')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
@@ -20,23 +20,23 @@ dispatch({type:LOADING})
 try {
     const res = await axios.post('/api/authRec/loginRec',Recruteur)
     dispatch({type:LOGIN_REC, payload: res.data})
-    navigate('/')
+    navigate('/MyListJobs')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
 } 
 //get_current
-export const getCurrent =()=>async(dispatch)=>{
+export const getCurrentRec =()=>async(dispatch)=>{
 const config={
     headers:{
         authorization:localStorage.getItem('token')
     }
 }
 try {
-    const res = await axios.get('/api/currentRec',config)
+    const res = await axios.get('/api/authRec/currentRec',config)
     console.log(res.data)
 
-    dispatch({type:GET_CURRENT, payload: res.data})
+    dispatch({type:GET_CURRENT_REC, payload: res.data})
 } catch (error) {
     dispatch({type:FAIL})
 }

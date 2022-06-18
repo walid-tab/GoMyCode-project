@@ -1,4 +1,4 @@
-import { GET_CURRENT_REC, LOGIN_REC, LOGOUT,REGISTER_REC } from "../actionTypes";
+import {  GET_CURRENT, LOGIN_REC, LOGOUT,REGISTER_REC } from "../actionTypes";
 
 const initialState = {
     authRec:false,
@@ -15,7 +15,7 @@ const authRecReducer = (state = initialState, { type, payload }) => {
     case LOGIN_REC:
         localStorage.setItem('token', payload.token )
         return { ...state, authRec:true, load:false, Recruteur: payload.foundRec}
-     case GET_CURRENT_REC:
+     case GET_CURRENT:
         return { ...state, authRec:true, load:false, Recruteur: payload.Recruteur}
     case LOGOUT :
       localStorage.removeItem('token')

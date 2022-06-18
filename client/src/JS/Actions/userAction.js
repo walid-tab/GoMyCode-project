@@ -8,7 +8,7 @@ try {
     const res = await axios.post('/api/authUser/register',newUser)
     
     dispatch({type:REGISTER, payload:res.data})
-    navigate('/')
+    navigate('/ProfilCand')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
@@ -21,7 +21,7 @@ try {
     const res = await axios.post('/api/authUser/login',user)
     dispatch({type:LOGIN, payload: res.data})
     
-    navigate('/')
+    navigate('/Jobs')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
@@ -34,7 +34,7 @@ const config={
     }
 }
 try {
-    const res = await axios.get('/api/current',config)
+    const res = await axios.get('/api/authUser/current',config)
     console.log(res.data)
 
     dispatch({type:GET_CURRENT, payload: res.data})
