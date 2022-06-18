@@ -26,10 +26,11 @@ const offreSchema = new mongoose.Schema({
     },
     dateOuverture : {
             
-            type: "date"          
+        type: Date,      
+        default: Date.now         
     },
     dateFermeture : {
-        type: "date"  
+        type: Date  
     },
     
 

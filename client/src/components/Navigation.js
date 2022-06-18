@@ -33,7 +33,7 @@ function Navigation() {
     <div><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}>Jobs</Link></div>
     <div><Link  className='titreNav'to='/ProfilCand'>Profil</Link></div>
 	<div><Link  className='titreNav'to='/Contact'>Contact Us</Link></div>
-	<div className="btn-logout" onClick={()=>{dispatch(logout());navigate('/AccountUser')}}>Logout</div>
+	<div className=" btn-logout" onClick={()=>{dispatch(logout());navigate('/AccountUser')}}>Logout</div>
 
 	
   </div>

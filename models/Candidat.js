@@ -19,19 +19,35 @@ const candidatSchema = new mongoose.Schema(
         },
     password:
         {
-            type: String,
+            type: String, 
             required: true,
         },
     numTel :
         {
             type: Number,
-          
+            trim:true,
+            min: 10000000,
+            max: 99999999       
         },
-    age:Number,
+    age:{type:Number,
+            min:16,
+            max:99},
     adress : {
         type: String,
         trim: true
     },  
+    bio:{
+        type:String,
+        trim:true
+    },
+    specialite:{
+        type:String,
+        trim:true
+    },
+    skills:{
+        type:String,
+        trim:true
+    },
     imageCand:String, 
     cvCand:String, 
     role:{
