@@ -8,6 +8,9 @@ import './components/StyleCss/Cardcss.css'
 import './components/StyleCss/Loader.css'
 import './components/StyleCss/ProfilUser.css'
 import './components/StyleCss/Navigation.css'
+import './components/StyleCss/PasswordPage.css'
+import './components/StyleCss/EditProfil.css'
+
 
 import { Provider } from 'react-redux';
 import { store } from './JS/Store';

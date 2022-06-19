@@ -15,8 +15,9 @@ function JobCard({job}) {
 		</div>
 		<div class="course-info">
 			
-			<h6>Job</h6>
-			<h2>{job.offreName}</h2>
+			<h6>Job : {job.dateOuverture}</h6>
+			
+			<h3 style={{marginTop:"15px"}}>{job.offreName}</h3>
       
 			<button class="btnCard"><Link to={`/Jobs/${job._id}`} style={{textDecoration:'none',color:'#fff'}}>View more</Link></button>
 		</div>

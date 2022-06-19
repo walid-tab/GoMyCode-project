@@ -42,17 +42,45 @@
     text-transform: capitalize;
 }
 .profile-edit-btn{
+    margin-bottom: 10px;
     border: none;
     border-radius: 1.5rem;
-    width: 70%;
+    width: 90%;
     padding: 2%;
     font-weight: 600;
-    color: #130b5c;
+    
     cursor: pointer;
     text-align: center;
     background-color: rgb(230, 225, 225);
 }
-.profile-edit-btn:hover{
+.profile-edit-btn .editP{
+    text-decoration: none;
+    color: #130b5c;
+}
+
+.profile-edit-btn .editP:hover{
+    color: #47B5FF;
+}
+.profile-edit-PS {
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 1.5rem;
+    width: 90%;
+    padding: 2%;
+    font-weight: 600;
+    
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(230, 225, 225);
+    text-decoration: none;
+}
+
+.profile-edit-PS .password{
+    text-decoration: none;
+    color: #130b5c;
+}
+.profile-edit-PS .password:hover{
+    
     color: #47B5FF;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 function ProfilCand() {
   const user = useSelector((state)=>state.authUserReducer.user)
@@ -38,7 +39,10 @@ function ProfilCand() {
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input  class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        
+                        <div  class="profile-edit-btn" name="btnAddMore"><Link className='editP' to='/ProfilCand/EditProfil'>Edit Profil</Link></div>
+                        <div  class="profile-edit-PS" name="btnAddMore"><Link className='password' to='/ProfilCand/ChangePassword'>Change Password</Link></div>
+
                     </div>
                 </div>
 

@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCurrent } from "./JS/Actions/userAction";
 import PrivateRoute from "./components/Private/PrivateRoute";
+import UpdatePassword from "./components/UserPages/UpdatePassword";
+import UpdateUser from "./components/UserPages/UpdateUser";
 //  import { getCurrentRec } from "./JS/Actions/recAction";
 
  
@@ -31,6 +33,18 @@ function App() {
         <Route path="/AccountRec" element={<LoginRec/>}/>
         <Route path="/Contact" element={<ContactUs/>}/>
         <Route path="/Jobs" element={<JobsList/>}/>
+
+        <Route path="/ProfilCand/ChangePassword" element={
+          <PrivateRoute>
+          <UpdatePassword/>
+          </PrivateRoute>
+        }/>
+         <Route path="/ProfilCand/EditProfil" element={
+          <PrivateRoute>
+          <UpdateUser/>
+          </PrivateRoute>
+        }/>
+
         <Route path="/ProfilCand" element={
           <PrivateRoute>
             <ProfilCand/>
