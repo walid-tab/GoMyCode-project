@@ -15,4 +15,4 @@ exports.isAuth = async (req, res, next)=>{
     } catch (error) {
         return res.status(401).send("you are not autorized")
     }
-}
+} 

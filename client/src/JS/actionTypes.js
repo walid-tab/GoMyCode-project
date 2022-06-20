@@ -5,7 +5,7 @@ export const GET_CURRENT = 'GET_CURRENT'
 export const LOADING = 'LOADING'
 export const LOGOUT = 'LOGOUT'
 export const FAIL = 'FAIL'
-export const PROPFIL_USER='PROPFIL_USER'
+export const EDIT_PROPFIL_USER='PROPFIL_USER'
 export const POSTULER = 'POSTULER'
 
 //recruteur ActionTypes
@@ -13,6 +13,8 @@ export const LOGIN_REC = 'LOGIN_REC'
 export const REGISTER_REC = 'REGISTER_REC'
 export const GET_CURRENT_REC = 'GET_CURRENT_REC'
 export const PROPFIL_REC='PROPFIL_REC'
+export const EDIT_PROPFIL_REC='PROPFIL_USER'
+
 
 //Admin ActionTypes
 export const GET_USERS = 'GET_USERS'
@@ -20,6 +22,7 @@ export const GET_RECS = 'GET_RECS'
 
 //Offres ActionTypes
 export const GET_JOBS = 'GET_JOBS'
+export const MY_JOBS = 'MY_JOBS'
 
 
 

@@ -47,8 +47,7 @@
     border-radius: 1.5rem;
     width: 90%;
     padding: 2%;
-    font-weight: 600;
-    
+    font-weight: 600;    
     cursor: pointer;
     text-align: center;
     background-color: rgb(230, 225, 225);
@@ -56,6 +55,23 @@
 .profile-edit-btn .editP{
     text-decoration: none;
     color: #130b5c;
+}
+.Delete-Acc{
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 1.5rem;
+    width: 90%;
+    padding: 2%;
+    font-weight: 600;
+    color: #130b5c;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(129, 114, 114, 0.582);
+
+}
+.Delete-Acc:hover{
+    color: #47B5FF;
+
 }
 
 .profile-edit-btn .editP:hover{

@@ -1,4 +1,4 @@
-import { FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTypes"
+import { EDIT_PROPFIL_REC, FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTypes"
 import axios from 'axios'
 
 //Register Candidat
@@ -44,3 +44,19 @@ try {
 } 
 //logout
 export const logout =()=>({type:LOGOUT});
+
+//Edit Profil
+export const editProfilUser =(user)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        const res = await axios.put('/api/accountUser/updateAccountCand',user,config)
+        console.log(res.data)    
+        dispatch(getCurrent())
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 

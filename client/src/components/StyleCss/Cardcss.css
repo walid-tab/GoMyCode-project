@@ -102,9 +102,24 @@
 	bottom: 30px;
 	right: 30px;
 	letter-spacing: 1px;
-  
 }
+.btnCardEdit {
 
+	background-color: #2A265F;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;	
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+}
+.twiceBtn{
+	margin-top: 20px;
+	display: flex;
+}
 
 
 /* SOCIAL PANEL CSS */

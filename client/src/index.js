@@ -10,6 +10,7 @@ import './components/StyleCss/ProfilUser.css'
 import './components/StyleCss/Navigation.css'
 import './components/StyleCss/PasswordPage.css'
 import './components/StyleCss/EditProfil.css'
+import './components/StyleCss/Details.css'
 
 
 import { Provider } from 'react-redux';

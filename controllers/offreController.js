@@ -55,7 +55,7 @@ exports.getAllJobs = async(req,res)=>{
 exports.getMyJobs = async(req,res)=>{
     try {
         const myJobs = await Offres.find({recruteurId : req.Recruteur.id})
-        res.status(200).send({msg:"list of Jobs",myJobs})
+        res.status(200).send({msg:"list of my Jobs",myJobs})
     } catch (error) {
         res.status(400).send('could not get Jobs')        
     }

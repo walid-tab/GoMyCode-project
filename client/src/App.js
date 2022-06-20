@@ -13,14 +13,28 @@ import { getCurrent } from "./JS/Actions/userAction";
 import PrivateRoute from "./components/Private/PrivateRoute";
 import UpdatePassword from "./components/UserPages/UpdatePassword";
 import UpdateUser from "./components/UserPages/UpdateUser";
-//  import { getCurrentRec } from "./JS/Actions/recAction";
+import DetailsJob from "./components/UserPages/DetailsJob";
+import { getCurrentRec } from "./JS/Actions/recAction";
+import MyListJobs from "./components/RecruteurPages/MyListJobs";
+import ProfilRec from "./components/RecruteurPages/ProfilRec";
+import UpdatePassRec from "./components/RecruteurPages/UpdatePassRec";
+import UpdateRec from "./components/RecruteurPages/UpdateRec";
+import AddJob from "./components/RecruteurPages/AddJob";
+import ListCandidatures from "./components/RecruteurPages/ListCandidatures";
+import EditJob from "./components/RecruteurPages/EditJob";
 
  
 
 function App() {
   const dispatch = useDispatch()
+
   useEffect(() => {
-    dispatch(getCurrent())
+    if(localStorage.getItem('user')==="recruteur"){
+      dispatch(getCurrentRec())
+    }else{
+      dispatch(getCurrent())
+    }
+ 
   }, [dispatch])
 
   return (
@@ -49,9 +63,49 @@ function App() {
           <PrivateRoute>
             <ProfilCand/>
           </PrivateRoute>
+        }/>
+        <Route path="/Jobs/Details/:id" element={
+          <PrivateRoute>
+            <DetailsJob/>
+          </PrivateRoute>
         }
         />
-        
+         <Route path="/MyJobs" element={
+          <PrivateRoute>
+            <MyListJobs/>
+          </PrivateRoute>
+        }/>
+         <Route path="/ProfilRec" element={
+          <PrivateRoute>
+            <ProfilRec/>
+          </PrivateRoute>
+        }/>
+
+        <Route path="/ProfilRec/ChangePassword" element={
+          <PrivateRoute>
+          <UpdatePassRec/>
+          </PrivateRoute>
+        }/>
+         <Route path="/ProfilRec/EditProfil" element={
+          <PrivateRoute>
+          <UpdateRec/>
+          </PrivateRoute>
+        }/>
+         <Route path="/addJob" element={
+          <PrivateRoute>
+          <AddJob/>
+          </PrivateRoute>
+        }/>
+        <Route path="/MyJobs/ListCandidates" element={
+          <PrivateRoute>
+          <ListCandidatures/>
+          </PrivateRoute>
+        }/>   
+        <Route path="/MyJobs/EditJob" element={
+          <PrivateRoute>
+          <EditJob/>
+          </PrivateRoute>
+        }/>        
 
 
       </Routes>

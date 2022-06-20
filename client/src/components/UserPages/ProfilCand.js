@@ -106,7 +106,7 @@ function ProfilCand() {
                         
                     </div>
                     <div class="col-md-2">
-                        <input  class="profile-edit-btn" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"/>
+                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"/>
                     </div>
                 </div>
                 

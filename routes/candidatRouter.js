@@ -11,7 +11,7 @@ candidatRouter.get('/myProfilUser/:id',isAuth,getMyProfil)
 
 // Modifier Profil
 // mothod update
-candidatRouter.put('/updateAccountCand',isAuth,upload.single('imageCand'),updateAccountCand)
+candidatRouter.put('/updateAccountCand',isAuth,updateAccountCand)
 
 // Modifier Password
 // mothod update
