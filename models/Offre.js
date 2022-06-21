@@ -13,7 +13,6 @@ const offreSchema = new mongoose.Schema({
     },
     offreCategorie : {
         type: String,
-        required: true,
         trim: true
     },
     nombrePostes :{ 

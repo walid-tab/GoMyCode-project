@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_JOBS, MY_JOBS } from '../actionTypes'
+import {  GET_JOBS, MY_JOBS } from '../actionTypes'
 
 export const getJobs=()=>async(dispatch)=>{
     try {
@@ -18,6 +18,51 @@ export const myJobs=()=>async(dispatch)=>{
     try {
         const res=await axios.get("/api/accountRec/myJobs",config)
         dispatch({type:MY_JOBS,payload:res.data})
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const addJobs=(newJob)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    } 
+    try {
+        await axios.post("/api/accountRec/addJob",newJob,config)
+        dispatch(myJobs())
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const EditJobs=(id,updatedJob)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    } 
+    try {
+        await axios.put(`/api/accountRec/updateJob/${id}`,updatedJob,config)
+        dispatch(myJobs())
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const DeleteJob=(id)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    } 
+    try {
+        await axios.delete(`/api/accountRec/deleteJob/${id}`,config)
+        dispatch(myJobs())
         
     } catch (error) {
         console.log(error)

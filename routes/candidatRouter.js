@@ -1,6 +1,6 @@
 const express = require('express');
 const { getAllJobs, postJob } = require('../controllers/offreController');
-const { updateAccountCand, deleteAccountCand, getMyProfil, updatePassCand } = require('../controllers/userCrudController');
+const { updateAccountCand, deleteAccountCand, getMyProfil, updatePassCand, updatePhotoCand } = require('../controllers/userCrudController');
 const { upload } = require('../middlewares/Upload');
 const { isAuth } = require('../middlewares/validationUser');
 const candidatRouter = express.Router()
@@ -12,7 +12,9 @@ candidatRouter.get('/myProfilUser/:id',isAuth,getMyProfil)
 // Modifier Profil
 // mothod update
 candidatRouter.put('/updateAccountCand',isAuth,updateAccountCand)
-
+// Modifier photo de Profil user
+// mothod update
+candidatRouter.put('/updatePhotoCand',isAuth,upload.single('imageCand'),updatePhotoCand)
 // Modifier Password
 // mothod update
 candidatRouter.put('/updatePasswordCand',isAuth,updatePassCand)

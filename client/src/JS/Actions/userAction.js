@@ -1,4 +1,4 @@
-import { EDIT_PROPFIL_REC, FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTypes"
+import { FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTypes"
 import axios from 'axios'
 
 //Register Candidat
@@ -60,3 +60,35 @@ export const editProfilUser =(user)=>async(dispatch)=>{
         dispatch({type:FAIL})
     }
     } 
+
+//Edit Photo Profil
+export const editPhotoUser =(user)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        const res = await axios.put('/api/accountUser/updatePhotoCand',user,config)
+        console.log(res.data)    
+        dispatch(getCurrent())
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 
+
+    //Edit Password User
+    export const editPasswordUser =( updatedPass)=>async(dispatch)=>{
+        const config={
+            headers:{
+                authorization:localStorage.getItem('token')
+            }
+        }
+        try {
+            const res = await axios.put('/api/accountUser/updatePasswordCand',updatedPass,config)
+            console.log(res.data)    
+            dispatch(getCurrent())
+        } catch (error) {
+            dispatch({type:FAIL})
+        }
+        } 

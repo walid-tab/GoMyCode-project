@@ -9,9 +9,7 @@ function Navigation() {
 	const navigate = useNavigate()
 	const authUser= useSelector((state)=>state.authUserReducer.authUser)
 	const authRec = useSelector((state)=>state.authRecReducer.authRec)
-
-
-
+  const {user} = useSelector((state)=>state.authUserReducer)
   return (
 
 	<div className="nav">
@@ -29,24 +27,34 @@ function Navigation() {
     </label>
   </div>
     
- { authUser ||authRec?
+ { authUser ||authRec ?
  <div className="nav-links">
     <div><Link  className='titreNav'to='/'>Home</Link></div>
     
-    {authUser &&
+    {authUser && (user.role==="user")&&
     <>
       <div><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}>Jobs</Link></div>
       <div><Link  className='titreNav'to='/ProfilCand'>My Profil</Link></div>
     </>
-}
+    }
+       
+       {/* {user.role==="admin" &&
+    <>
+      
+      <div><Link  className='titreNav'to='/admin'>Admin</Link></div>
+    </>
+    } */}
   {authRec &&  
   <>
   <div><Link  className='titreNav'to='/MyJobs' onClick={()=>dispatch(myJobs())} >My Jobs</Link></div>
   <div><Link  className='titreNav'to='/ProfilRec'>Profil</Link></div> 
-  <div><Link  className='titreNav'to='/addJob'>Add Job</Link></div> 
-
+  <div><Link  className='titreNav'to='/addJob'>Add Job</Link></div>
   </> 	
   }
+  {
+
+  }
+  
 	
   <div className=" btn-logout" onClick={()=>{dispatch(logout());navigate('/AccountUser')}}>Logout</div>
   

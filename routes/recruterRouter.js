@@ -11,7 +11,10 @@ recruteurRouter.get('/myProfilRec/:id',isAuthRec,getMyProfilRec)
 
 // Modifier Profil
 // mothod update
-recruteurRouter.put('/updateAccountRec',isAuthRec,upload.single('imageRec'),updateAccountRec)
+recruteurRouter.put('/updateAccountRec',isAuthRec,updateAccountRec)
+// Modifier pohto de Profil
+// mothod update
+// recruteurRouter.put('/updateAccountRec',isAuthRec,updateAccountRec)
 
 // Modifier Password
 // mothod update

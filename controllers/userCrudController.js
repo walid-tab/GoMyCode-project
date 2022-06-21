@@ -33,16 +33,17 @@ exports.updateAccountCand=async(req,res)=>{
         res.status(400).send({msg:"could not update"})         
     }
 }
-//
-// exports.updateAccountCand=async(req,res)=>{
+//method Update
+// API : /updatePhotoCand
+exports.updatePhotoCand=async(req,res)=>{
     
-//     try {
-//         const updated= await users.findByIdAndUpdate(req.user._id, {$set:{...req.body,imageCand:req.file.filename}} ,{new:true})
-//     res.status(200).send({msg:"account updated successfully",updated})        
-//     } catch (error) {
-//         res.status(400).send({msg:"could not update"})        
-//     }
-// }
+    try {
+        const updated= await users.findByIdAndUpdate(req.user._id, {$set:{...req.body,imageCand:req.file.filename}} ,{new:true})
+    res.status(200).send({msg:"photo updated successfully",updated})        
+    } catch (error) {
+        res.status(400).send({msg:"could not update phtot"})        
+    }
+}
 // method Update
 // API : /updatePasswordCand
 exports.updatePassCand=async(req,res)=>{

@@ -22,6 +22,7 @@ import UpdateRec from "./components/RecruteurPages/UpdateRec";
 import AddJob from "./components/RecruteurPages/AddJob";
 import ListCandidatures from "./components/RecruteurPages/ListCandidatures";
 import EditJob from "./components/RecruteurPages/EditJob";
+import Candidature from "./components/UserPages/Candidature";
 
  
 
@@ -58,6 +59,11 @@ function App() {
           <UpdateUser/>
           </PrivateRoute>
         }/>
+         {/* <Route path="/ProfilCand/ChangePhotoCand" element={
+          <PrivateRoute>
+          <ChangePhotoUser/>
+          </PrivateRoute>
+        }/> */}
 
         <Route path="/ProfilCand" element={
           <PrivateRoute>
@@ -68,8 +74,12 @@ function App() {
           <PrivateRoute>
             <DetailsJob/>
           </PrivateRoute>
-        }
-        />
+        }/>
+        <Route path="/Jobs/Details/:id" element={
+          <PrivateRoute>
+            <Candidature/>
+          </PrivateRoute>
+        }/>
          <Route path="/MyJobs" element={
           <PrivateRoute>
             <MyListJobs/>
@@ -91,7 +101,7 @@ function App() {
           <UpdateRec/>
           </PrivateRoute>
         }/>
-         <Route path="/addJob" element={
+          <Route path="/addJob" element={
           <PrivateRoute>
           <AddJob/>
           </PrivateRoute>
@@ -101,9 +111,14 @@ function App() {
           <ListCandidatures/>
           </PrivateRoute>
         }/>   
-        <Route path="/MyJobs/EditJob" element={
+        <Route path="/MyJobs/EditJob/:id" element={
           <PrivateRoute>
           <EditJob/>
+          </PrivateRoute>
+        }/>  
+        <Route path="/Jobs/Details/PostulerJob/:id" element={
+          <PrivateRoute>
+          <Candidature/>
           </PrivateRoute>
         }/>        
 

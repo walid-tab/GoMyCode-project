@@ -14,20 +14,39 @@
     height: 100%;
 }
 .profile-img .file {
+   
     position: relative;
     overflow: hidden;
     margin-top: -20%;
+    height: 40%;
     width: 70%;
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background: #212529b8;
+    background: #292121b8;
 }
 .profile-img .file input {
+    cursor: pointer;
     position: absolute;
     opacity: 0;
     right: 0;
     top: 0;
+}
+.Confirm-Img{
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #130b5c;    
+    text-align: center;
+    background-color: rgba(129, 114, 114, 0.582);
+}
+.profile-edit-PS .Confirm-Img:hover{
+    color: #47B5FF;
+
 }
 .profile-head h5{
     color: #333;

@@ -20,7 +20,7 @@ dispatch({type:LOADING})
 try {
     const res = await axios.post('/api/authRec/loginRec',Recruteur)
     dispatch({type:LOGIN_REC, payload: res.data})
-    navigate('/MyListJobs')
+    navigate('/MyJobs')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }
@@ -43,3 +43,37 @@ try {
 } 
 //logout
 export const logout =()=>({type:LOGOUT});
+
+//Edit Profil Rec
+export const editProfilRec =(Recruteur)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        const res = await axios.put('/api/accountRec/updateAccountRec',Recruteur,config)
+        console.log(res.data)    
+        dispatch(getCurrentRec())
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 
+
+       //Edit Password User
+       export const editPasswordRec =( updatedPassRec)=>async(dispatch)=>{
+        const config={
+            headers:{
+                authorization:localStorage.getItem('token')
+            }
+        }
+        try {
+            const res = await axios.put('/api/accountRec/updatePasswordRec',updatedPassRec,config)
+            console.log(res.data)    
+            dispatch(getCurrentRec())
+        } catch (error) {
+            dispatch({type:FAIL})
+        }
+        } 
+
+        

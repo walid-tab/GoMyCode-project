@@ -1,9 +1,17 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { editPhotoUser } from '../../JS/Actions/userAction'
 
 function ProfilCand() {
+
   const user = useSelector((state)=>state.authUserReducer.user)
+  const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const [img, setImg] = useState("")
+  useEffect(() => {
+    user && setImg(user.imageCand)        
+   }, [user])
   
   return (
     <div className='profilUser'>
@@ -14,12 +22,17 @@ function ProfilCand() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <input type="file" name="file"/>
-                            </div>
+                                <input type="file" name="file"  />
+                                
+                             </div>
+                            
+
                         </div>
+                        {/* <button class="Confirm-Img"  type="button"  onClick={()=>{dispatch(editPhotoUser({img}));navigate('/ProfilCand')}}>submit</button> */}
+
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
@@ -42,6 +55,7 @@ function ProfilCand() {
                         
                         <div  class="profile-edit-btn" name="btnAddMore"><Link className='editP' to='/ProfilCand/EditProfil'>Edit Profil</Link></div>
                         <div  class="profile-edit-PS" name="btnAddMore"><Link className='password' to='/ProfilCand/ChangePassword'>Change Password</Link></div>
+                        <div  class="profile-edit-PS" name="Confirm-Img" onClick={()=>{dispatch(editPhotoUser({img}));navigate('/ProfilCand')}}>Change Photo</div>
 
                     </div>
                 </div>

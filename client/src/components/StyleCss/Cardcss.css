@@ -103,6 +103,10 @@
 	right: 30px;
 	letter-spacing: 1px;
 }
+.btnCard:hover{
+	  background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
+
+}
 .btnCardEdit {
 
 	background-color: #2A265F;
@@ -116,12 +120,33 @@
 	right: 30px;
 	letter-spacing: 1px;
 }
+.btnCardEdit:hover{
+	background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
+
+}
 .twiceBtn{
 	margin-top: 20px;
 	display: flex;
 }
 
+.BtnCardDelete{
+	cursor: pointer;
+	background-color: #2A265F;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;	
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+}
+.BtnCardDelete:hover{
+	background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
 
+}
 /* SOCIAL PANEL CSS */
 .social-panel-container {
 	position: fixed;

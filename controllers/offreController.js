@@ -6,6 +6,7 @@ const Candidatures = require("../models/Candidature");
 // method POST
 // API : /addJob
 exports.addJob= async (req,res)=>{
+   
     
     try {
         const newJob = new Offres({...req.body, recruteurId : req.Recruteur.id});
@@ -16,7 +17,7 @@ exports.addJob= async (req,res)=>{
     }
 }
 
-// method POST
+// method UPDATE
 // API : /updateJob/:id
 exports.updateJob= async (req,res)=>{
     try {

@@ -6,9 +6,14 @@ export const LOADING = 'LOADING'
 export const LOGOUT = 'LOGOUT'
 export const FAIL = 'FAIL'
 export const EDIT_PROPFIL_USER='PROPFIL_USER'
+export const EDIT_PHOTO_USER='PHOTO_USER'
+
 export const POSTULER = 'POSTULER'
 
 //recruteur ActionTypes
+export const ADD_JOB='ADD_JOB'
+export const UPDATE_JOB='UPDATE_JOB'
+
 export const LOGIN_REC = 'LOGIN_REC'
 export const REGISTER_REC = 'REGISTER_REC'
 export const GET_CURRENT_REC = 'GET_CURRENT_REC'

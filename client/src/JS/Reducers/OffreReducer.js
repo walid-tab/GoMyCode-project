@@ -10,6 +10,7 @@ const OffreReducer= (state = initialState, { type, payload }) => {
     return { ...state, allJobs:payload.allJobs,load:false } 
     case MY_JOBS:   
     return { ...state, allJobs:payload.myJobs,load:false } 
+    
 
   default:
     return state
