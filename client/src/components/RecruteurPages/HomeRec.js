@@ -1,12 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-function Home() {
-
-
+function HomeRec() {
   return (
-    <div className='bodySearch'>  
-       <div className='welcome'>Find Your Job</div>      
+    <div className='bodySearch'>
+      
+       <div className='welcome'>Find Candidate Cv</div>  
       <div class="button_box2">
           <form class="form-wrapper-2 cf">
           <input type="text" placeholder="Search here..." required/>
@@ -17,4 +15,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomeRec

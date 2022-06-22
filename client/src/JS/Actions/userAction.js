@@ -21,7 +21,7 @@ try {
     const res = await axios.post('/api/authUser/login',user)
     dispatch({type:LOGIN, payload: res.data})
     
-    navigate('/Jobs')
+    navigate('/')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
 }

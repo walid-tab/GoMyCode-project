@@ -28,6 +28,9 @@ export const GET_RECS = 'GET_RECS'
 //Offres ActionTypes
 export const GET_JOBS = 'GET_JOBS'
 export const MY_JOBS = 'MY_JOBS'
+//Candidatures ActionTypes
+export const GET_CANDIDATURE = 'GET_CANDIDATURE'
+export const POST_CANDIDATURE = 'POST_CANDIDATURE'
 
 
 

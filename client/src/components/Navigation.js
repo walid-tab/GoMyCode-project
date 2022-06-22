@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { getJobs, myJobs } from '../JS/Actions/OffreActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../JS/Actions/userAction'
+import { getListRecs, getListUsers } from '../JS/Actions/AdminActions'
 
 function Navigation() {
 	const dispatch = useDispatch()
@@ -29,23 +30,30 @@ function Navigation() {
     
  { authUser ||authRec ?
  <div className="nav-links">
-    <div><Link  className='titreNav'to='/'>Home</Link></div>
+   
     
     {authUser && (user.role==="user")&&
     <>
+       <div><Link  className='titreNav'to='/'>Home</Link></div>
       <div><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}>Jobs</Link></div>
       <div><Link  className='titreNav'to='/ProfilCand'>My Profil</Link></div>
     </>
     }
        
-       {/* {user.role==="admin" &&
+       {user.role==="admin" &&
     <>
       
-      <div><Link  className='titreNav'to='/admin'>Admin</Link></div>
+      <div><Link  className='titreNav'to='/'>Home</Link></div>
+      <div><Link  className='titreNav'to='/ProfilCand'>Admin </Link></div>
+      <div><Link  className='titreNav'to='/ListUsers' onClick={()=>dispatch(getListUsers())}>Users </Link></div>
+      <div><Link  className='titreNav'to='/ListRecruiters'onClick={()=>dispatch(getListRecs())}>Recruiters </Link></div>
+      <div><Link  className='titreNav'to='/ListJobs'>Offers </Link></div>
+      <div><Link  className='titreNav'to='/ListMessages'>Messages </Link></div>
     </>
-    } */}
+    }
   {authRec &&  
   <>
+  <div><Link  className='titreNav'to='/HomeRec'>Home</Link></div>
   <div><Link  className='titreNav'to='/MyJobs' onClick={()=>dispatch(myJobs())} >My Jobs</Link></div>
   <div><Link  className='titreNav'to='/ProfilRec'>Profil</Link></div> 
   <div><Link  className='titreNav'to='/addJob'>Add Job</Link></div>

@@ -2,7 +2,7 @@ import { GET_JOBS, MY_JOBS } from "../actionTypes";
 
 const initialState = {
   allJobs :[],
-    load:true,
+  load:true,
 }
 const OffreReducer= (state = initialState, { type, payload }) => { 
   switch (type) {

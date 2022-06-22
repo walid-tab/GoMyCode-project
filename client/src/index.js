@@ -12,6 +12,7 @@ import './components/StyleCss/PasswordPage.css'
 import './components/StyleCss/EditProfil.css'
 import './components/StyleCss/Details.css'
 import './components/StyleCss/SearchBar.css'
+import './components/StyleCss/UserCard.css'
 
 
 import { Provider } from 'react-redux';
