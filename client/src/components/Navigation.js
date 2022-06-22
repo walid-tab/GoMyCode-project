@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { getJobs, myJobs } from '../JS/Actions/OffreActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../JS/Actions/userAction'
-import { getListRecs, getListUsers } from '../JS/Actions/AdminActions'
+import { getListMsgs, getListOffers, getListRecs, getListUsers } from '../JS/Actions/AdminActions'
 
 function Navigation() {
 	const dispatch = useDispatch()
@@ -47,8 +47,8 @@ function Navigation() {
       <div><Link  className='titreNav'to='/ProfilCand'>Admin </Link></div>
       <div><Link  className='titreNav'to='/ListUsers' onClick={()=>dispatch(getListUsers())}>Users </Link></div>
       <div><Link  className='titreNav'to='/ListRecruiters'onClick={()=>dispatch(getListRecs())}>Recruiters </Link></div>
-      <div><Link  className='titreNav'to='/ListJobs'>Offers </Link></div>
-      <div><Link  className='titreNav'to='/ListMessages'>Messages </Link></div>
+      <div><Link  className='titreNav'to='/ListJobs' onClick={()=>dispatch(getListOffers())}>Offers </Link></div>
+      <div><Link  className='titreNav'to='/ListMessages'onClick={()=>dispatch(getListMsgs())}>Messages </Link></div>
     </>
     }
   {authRec &&  

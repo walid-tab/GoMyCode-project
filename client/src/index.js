@@ -13,6 +13,7 @@ import './components/StyleCss/EditProfil.css'
 import './components/StyleCss/Details.css'
 import './components/StyleCss/SearchBar.css'
 import './components/StyleCss/UserCard.css'
+import './components/StyleCss/MessageCard.css'
 
 
 import { Provider } from 'react-redux';

@@ -5,7 +5,7 @@ import { registerRec } from '../JS/Actions/recAction'
 
 
 function RegisterRec() {
-    const [recruteurName,setRecruteurName] = useState("")
+  const [recruteurName,setRecruteurName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPasswod] = useState("")
 	const dispatch=useDispatch()

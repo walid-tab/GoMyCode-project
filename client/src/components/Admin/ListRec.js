@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import RecruiterCard from './RecruiterCard'
 
 function ListRec() {
-  const loading = useSelector((state)=>state.authUserReducer.load)
+  const loading = useSelector((state)=>state.adminReducer.load)
   const recruteurs = useSelector((state)=>state.adminReducer.allRecruteurs)
 
   return (

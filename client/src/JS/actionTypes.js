@@ -7,7 +7,6 @@ export const LOGOUT = 'LOGOUT'
 export const FAIL = 'FAIL'
 export const EDIT_PROPFIL_USER='PROPFIL_USER'
 export const EDIT_PHOTO_USER='PHOTO_USER'
-
 export const POSTULER = 'POSTULER'
 
 //recruteur ActionTypes
@@ -24,14 +23,21 @@ export const EDIT_PROPFIL_REC='PROPFIL_USER'
 //Admin ActionTypes
 export const GET_USERS = 'GET_USERS'
 export const GET_RECS = 'GET_RECS'
+export const GET_OFFERS = 'GET_OFFERS'
+export const GET_MESSAGES = 'GET_MESSAGES'
+
 
 //Offres ActionTypes
 export const GET_JOBS = 'GET_JOBS'
 export const MY_JOBS = 'MY_JOBS'
+
+
 //Candidatures ActionTypes
 export const GET_CANDIDATURE = 'GET_CANDIDATURE'
 export const POST_CANDIDATURE = 'POST_CANDIDATURE'
 
+//Guest ActionsTypes
+export const POST_MESSAGE='POST_MESSAGE'
 
 
 

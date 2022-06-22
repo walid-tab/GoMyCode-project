@@ -31,20 +31,23 @@ p {
 }
 
 .card-container .pro {
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     cursor: pointer;
 	color: #ffffff;
-	background-color: #4CACBC;
+	background: linear-gradient(45deg,rgb(3, 30, 58) , rgb(47, 206, 255));
+
 	border-radius: 3px;
 	font-size: 14px;
-	font-weight: bolder;
 	padding: 3px 7px;
+	font-weight: bold;
 	position: absolute;
     letter-spacing: 2px;
-	top: 30px;
-	left: 30px;
+	bottom: 25px;
+	right: 30px;
 }
 .card-container .pro:hover {
-    background-color: rgb(50, 202, 202);
+	background: #0062cc;
+
 }
 
 

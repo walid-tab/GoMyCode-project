@@ -1,5 +1,5 @@
 import axios from "axios"
-import {GET_RECS, GET_USERS } from '../actionTypes'
+import {GET_MESSAGES, GET_OFFERS, GET_RECS, GET_USERS } from '../actionTypes'
 
 
 export const getListUsers=()=>async(dispatch)=>{
@@ -53,6 +53,62 @@ export const deleteOneRec=(id)=>async(dispatch)=>{
     try {
         await axios.delete(`/api/admin/deleteRecruteur/${id}`,config)
         dispatch(getListRecs())
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getListMsgs=()=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+                }
+    }
+    try {
+        const res=await axios.get("/api/admin/allMessages",config)
+        dispatch({type:GET_MESSAGES,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const deleteMsgContact=(id)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+                }
+    }
+    try {
+        const res=await axios.delete(`/api/admin/deleteMessage/${id}`,config)
+        dispatch({type:GET_MESSAGES,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getListOffers=()=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+                }
+    }
+    try {
+        const res=await axios.get("/api/admin/allJobs",config)
+        dispatch({type:GET_OFFERS,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const deleteOneOffer=(id)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+                }
+    }
+    try {
+        const res=await axios.delete(`/api/admin//deleteOffre/${id}`,config)
+        dispatch({type:GET_OFFERS,payload:res.data})
     } catch (error) {
         console.log(error)
     }

@@ -7,7 +7,7 @@ function UserCard({user}) {
 	return (
     <div className='BodyUser'>
       <div className="card-container">
-	<span className="pro" onClick={()=>dispatch(deleteOneUser(user._id))}>Delete</span>
+	<span className="pro" onClick={()=>{dispatch(deleteOneUser(user._id))}}>Delete</span>
 	<img className="round" src={user.imageCand} alt="user" />
 	<h3>{user.firstName} {user.lastName}</h3>
 	<h6>{user.role}</h6>

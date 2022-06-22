@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import UserCard from './UserCard'
 
 function ListUser() {
-  const loading = useSelector((state)=>state.authUserReducer.load)
+  const loading = useSelector((state)=>state.adminReducer.load)
   const users = useSelector((state)=>state.adminReducer.allCandidats)
 
   return (
