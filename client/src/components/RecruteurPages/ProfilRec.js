@@ -1,8 +1,11 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { deleteAccountRec } from '../../JS/Actions/recAction'
 
 function ProfilRec() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
   const Recruteur = useSelector((state)=>state.authRecReducer.Recruteur)
 
   return (
@@ -99,7 +102,7 @@ function ProfilRec() {
                         
                     </div>
                     <div class="col-md-2">
-                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"/>
+                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account" onClick={()=>{dispatch(deleteAccountRec());navigate('/')}}/>
                     </div>
                 </div>
                 

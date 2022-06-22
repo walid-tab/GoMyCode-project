@@ -92,3 +92,18 @@ export const editPhotoUser =(user)=>async(dispatch)=>{
             dispatch({type:FAIL})
         }
         } 
+ //Delete Account User
+ export const deleteAccountUser =()=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        await axios.delete('/api/accountUser/deleteAccountCand',config)           
+        dispatch(logout())
+        
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 

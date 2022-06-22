@@ -41,7 +41,7 @@ exports.updatePhotoCand=async(req,res)=>{
         const updated= await users.findByIdAndUpdate(req.user._id, {$set:{...req.body,imageCand:req.file.filename}} ,{new:true})
     res.status(200).send({msg:"photo updated successfully",updated})        
     } catch (error) {
-        res.status(400).send({msg:"could not update phtot"})        
+        res.status(500).send({msg:"could not update photo"})        
     }
 }
 // method Update

@@ -16,7 +16,7 @@ function RegisterRec() {
             <div className="input-boxes">
               <div className="input-box">
                 <i className="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required onChange={(e)=>setRecruteurName(e.target.value)} value={recruteurName}/>
+                <input type="text" placeholder="Enter your campany name" required onChange={(e)=>setRecruteurName(e.target.value)} value={recruteurName}/>
               </div>
               <div className="input-box">
                 <i className="fas fa-envelope"></i>

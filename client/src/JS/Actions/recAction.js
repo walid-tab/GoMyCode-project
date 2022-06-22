@@ -76,4 +76,20 @@ export const editProfilRec =(Recruteur)=>async(dispatch)=>{
         }
         } 
 
+          //Delete Account Recruiter
+    export const deleteAccountRec =()=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        await axios.delete('/api/accountRec/deleteAccoutRec',config)           
+        dispatch(logout())
+        
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 
+
         

@@ -12,4 +12,13 @@ const storage = multer.diskStorage({
     }
   })
   
-  exports.upload = multer({ storage: storage })
+  exports.upload = multer({ storage: storage ,fileFilter: function(req,file,cb){
+    const fileType =/jpeg|jpg|png/ig
+    const extName=fileType.test(path.extname(file.originalname))
+    if(extName){
+      cb(null,true)
+    }else{
+      cb('error:image only')
+    }
+  } 
+})

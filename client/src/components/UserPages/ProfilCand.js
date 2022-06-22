@@ -1,18 +1,35 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { editPhotoUser } from '../../JS/Actions/userAction'
+import { deleteAccountUser } from '../../JS/Actions/userAction'
 
 function ProfilCand() {
 
   const user = useSelector((state)=>state.authUserReducer.user)
   const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [img, setImg] = useState("")
+    const [img, setImg] = useState(null)
   useEffect(() => {
     user && setImg(user.imageCand)        
    }, [user])
   
+   const EditPhoto=async()=>{
+    const data= new FormData()
+    data.append('imageCand',img)
+    const config={
+        Headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        const res= await axios.put('/api/accountUser/updatePhotoCand',data,config)
+        console.log(res.data)
+    } catch (error) {
+        console.log(error)
+        
+    }
+   }
   return (
     <div className='profilUser'>
  
@@ -22,10 +39,10 @@ function ProfilCand() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src={user.imageCand} alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <input type="file" name="file"  />
+                                <input type="file" name="file"  onChange={(e)=>setImg(e.target.files(0))}/>
                                 
                              </div>
                             
@@ -55,7 +72,7 @@ function ProfilCand() {
                         
                         <div  class="profile-edit-btn" name="btnAddMore"><Link className='editP' to='/ProfilCand/EditProfil'>Edit Profil</Link></div>
                         <div  class="profile-edit-PS" name="btnAddMore"><Link className='password' to='/ProfilCand/ChangePassword'>Change Password</Link></div>
-                        <div  class="profile-edit-PS" name="Confirm-Img" onClick={()=>{dispatch(editPhotoUser({img}));navigate('/ProfilCand')}}>Change Photo</div>
+                        <div  class="profile-edit-PS" name="Confirm-Img" onClick={EditPhoto}>Change Photo</div>
 
                     </div>
                 </div>
@@ -120,7 +137,7 @@ function ProfilCand() {
                         
                     </div>
                     <div class="col-md-2">
-                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"/>
+                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"  onClick={()=>{dispatch(deleteAccountUser());navigate('/')}}/>
                     </div>
                 </div>
                 

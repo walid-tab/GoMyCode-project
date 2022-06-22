@@ -13,7 +13,7 @@ function MessageCard({msg}) {
     <h4>{msg.Name}</h4>
     <h3>{msg.email}</h3>
     <p>{msg.objetMsg}</p>
-    <div className="btn_primary1" onClick={()=>{dispatch(deleteMsgContact(msg._id))}}>delete</div>
+    <div className="btn_primary1" onClick={()=>dispatch(deleteMsgContact(msg._id))}>delete</div>
   </div>
   
 </div>

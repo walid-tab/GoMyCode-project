@@ -4,7 +4,7 @@ import MessageCard from './MessageCard'
 
 function ListMessages() {
   const loading = useSelector((state)=>state.adminReducer.load)
-  const msgs = useSelector((state)=>state.adminReducer.msgs)
+  const messages = useSelector((state)=>state.adminReducer.msgs)
 
   return (
     <div style={{margin:'15px',display:'inlineBlock', gap:'30px', flexWrap:'wrap'}}>
@@ -16,7 +16,7 @@ function ListMessages() {
     <div className="circle"></div>
     <div className="circle"></div>
   </div>
-    : msgs.map((msg,i)=>(<MessageCard msg={msg} key={i}/>)) }
+    : messages.map((msg,i)=>(<MessageCard msg={msg} key={i}/>)) }
   </div>
   )
 }

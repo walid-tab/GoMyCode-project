@@ -107,7 +107,7 @@ export const deleteOneOffer=(id)=>async(dispatch)=>{
                 }
     }
     try {
-        const res=await axios.delete(`/api/admin//deleteOffre/${id}`,config)
+        const res=await axios.delete(`/api/admin/deleteOffre/${id}`,config)
         dispatch({type:GET_OFFERS,payload:res.data})
     } catch (error) {
         console.log(error)

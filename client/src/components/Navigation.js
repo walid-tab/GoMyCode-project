@@ -40,7 +40,7 @@ function Navigation() {
     </>
     }
        
-       {user.role==="admin" &&
+       {/* {user.role==="admin" &&
     <>
       
       <div><Link  className='titreNav'to='/'>Home</Link></div>
@@ -50,7 +50,7 @@ function Navigation() {
       <div><Link  className='titreNav'to='/ListJobs' onClick={()=>dispatch(getListOffers())}>Offers </Link></div>
       <div><Link  className='titreNav'to='/ListMessages'onClick={()=>dispatch(getListMsgs())}>Messages </Link></div>
     </>
-    }
+    } */}
   {authRec &&  
   <>
   <div><Link  className='titreNav'to='/HomeRec'>Home</Link></div>
