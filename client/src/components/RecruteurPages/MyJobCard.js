@@ -27,7 +27,7 @@ function MyJobCard({job}) {
           
           <div className='twiceBtn'>
           <button className="btnCardEdit"><Link to={`/MyJobs/EditJob/${job._id}`} style={{textDecoration:'none',color:'#fff'}}>Edit Job</Link></button>
-          <button className="btnCard"><Link to={`/MyJobs/ListCandidates/${job._id}`} style={{textDecoration:'none',color:'#fff'}}  onClick={()=>dispatch(getCandidature())}>List of Candidates</Link></button>
+          <button className="btnCard"><Link to={`/MyJobs/ListCandidates/${job._id}`} style={{textDecoration:'none',color:'#fff'}}  onClick={()=>dispatch(getCandidature(job._id))}>List of Candidates</Link></button>
           </div>
            </div>
   </div>

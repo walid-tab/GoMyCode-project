@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { PostulerJob } from '../../JS/Actions/userAction'
 
 function Candidature() {
     const dispatch = useDispatch()
@@ -10,6 +11,9 @@ function Candidature() {
     const [experience, setExperience] = useState("")
     const [nbre_experience, setNbre_experience] = useState("")
     const [langues, setLangues] = useState("")
+
+    const {id}=useParams()
+    console.log(id)
   return (
     <div>
          <div className='editUser'>
@@ -39,7 +43,7 @@ function Candidature() {
     
 
     <div class="inputbox">
-      <input type="button" value="submit" onClick={()=>{dispatch(({diplome,experience,nbre_experience,langues,formation}));navigate('/Jobs')}}/>
+      <input type="button" value="submit" onClick={()=>{dispatch(PostulerJob(id,{diplome,experience,nbre_experience,langues,formation}));navigate('/Jobs')}}/>
     </div>
   </form>
 </div>

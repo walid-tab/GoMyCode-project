@@ -1,6 +1,6 @@
 const express = require('express');
 const { addJob, getMyJobs, updateJob, deleteJob, getCvCandidat, getAllCandidatures } = require('../controllers/offreController');
-const { updateAccountRec, deleteAccountRec, getMyProfilRec, updatePassRec } = require('../controllers/recruteurCrudController');
+const { updateAccountRec, deleteAccountRec, getMyProfilRec, updatePassRec, updatePhotoRec } = require('../controllers/recruteurCrudController');
 const { upload } = require('../middlewares/Upload');
 const { isAuthRec } = require('../middlewares/ValidationRec');
 const recruteurRouter = express.Router()
@@ -12,9 +12,9 @@ recruteurRouter.get('/myProfilRec/:id',isAuthRec,getMyProfilRec)
 // Modifier Profil
 // mothod update
 recruteurRouter.put('/updateAccountRec',isAuthRec,updateAccountRec)
-// Modifier pohto de Profil
+// Modifier photo de Profil Rec
 // mothod update
-// recruteurRouter.put('/updateAccountRec',isAuthRec,updateAccountRec)
+recruteurRouter.put('/updatePhotoRec',isAuthRec,upload.single('imageRec'),updatePhotoRec)
 
 // Modifier Password
 // mothod update

@@ -1,13 +1,31 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { deleteAccountRec } from '../../JS/Actions/recAction'
+import { deleteAccountRec, getCurrentRec } from '../../JS/Actions/recAction'
 
 function ProfilRec() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-  const Recruteur = useSelector((state)=>state.authRecReducer.Recruteur)
+    const [imageRec, setImageRec] = useState(null)
 
+  const Recruteur = useSelector((state)=>state.authRecReducer.Recruteur)
+  const EditPhotoRec=async()=>{
+    const data= new FormData()
+    data.append('imageRec',imageRec)
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+         await axios.put('/api/accountRec/updatePhotoRec',data,config)
+        dispatch(getCurrentRec())
+    } catch (error) {
+        console.log(error)
+        
+    }
+   }
   return (
     <div className='profilUser'>
  
@@ -17,10 +35,10 @@ function ProfilRec() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <img src={Recruteur&&Recruteur.imageRec ? `images/${Recruteur.imageRec}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <input type="file" name="file"/>
+                                <input type="file" name="file"  onChange={(e)=>setImageRec(e.target.files[0])}/>
                             </div>
                         </div>
                     </div>
@@ -46,6 +64,7 @@ function ProfilRec() {
                         
                         <div  class="profile-edit-btn" name="btnAddMore"><Link className='editP' to='/ProfilRec/EditProfil'>Edit Profil</Link></div>
                         <div  class="profile-edit-PS" name="btnAddMore"><Link className='password' to='/ProfilRec/ChangePassword'>Change Password</Link></div>
+                        <div  class="profile-edit-PS Confirm-Img" name="btnAddMore" onClick={EditPhotoRec}>Change Photo</div>
 
                     </div>
                 </div>

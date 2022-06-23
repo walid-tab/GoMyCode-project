@@ -79,8 +79,8 @@ export const deleteMsgContact=(id)=>async(dispatch)=>{
                 }
     }
     try {
-        const res=await axios.delete(`/api/admin/deleteMessage/${id}`,config)
-        dispatch({type:GET_MESSAGES,payload:res.data})
+        await axios.delete(`/api/admin/deleteMessage/${id}`,config)
+        dispatch(getListMsgs())
     } catch (error) {
         console.log(error)
     }
@@ -107,8 +107,8 @@ export const deleteOneOffer=(id)=>async(dispatch)=>{
                 }
     }
     try {
-        const res=await axios.delete(`/api/admin/deleteOffre/${id}`,config)
-        dispatch({type:GET_OFFERS,payload:res.data})
+        await axios.delete(`/api/admin/deleteOffre/${id}`,config)
+        dispatch(getListOffers())
     } catch (error) {
         console.log(error)
     }

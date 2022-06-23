@@ -44,7 +44,7 @@
     text-align: center;
     background-color: rgba(129, 114, 114, 0.582);
 }
-.profile-edit-PS .Confirm-Img:hover{
+.profile-edit-PS.Confirm-Img:hover{
     color: #47B5FF;
 
 }

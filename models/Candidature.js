@@ -13,10 +13,9 @@ const candidatureSchema = new mongoose.Schema(
     formation : String,
     experience : 
     {
-        type: Boolean,
-        default:'false'
+        type: String
     },
-    nbre_experience : Number,
+    nbre_experience : String,
     langues : String,
     offreId : {
         type:mongoose.Schema.Types.ObjectId,

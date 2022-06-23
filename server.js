@@ -24,4 +24,5 @@ app.use('/api/admin',adminRouter)
 app.use('/api/guest',guestRouter) 
 
 
+
 app.listen(port,console.log(`server is up and running on http://localhost:${port}`))

@@ -90,11 +90,7 @@ function App() {
           <UpdateUser/>
           </PrivateRoute>
         }/>
-         {/* <Route path="/ProfilCand/ChangePhotoCand" element={
-          <PrivateRoute>
-          <ChangePhotoUser/>
-          </PrivateRoute>
-        }/> */}
+         
 
         <Route path="/ProfilCand" element={
           <PrivateRoute>
@@ -146,7 +142,7 @@ function App() {
           <AddJob/>
           </PrivateRoute>
         }/>
-        <Route path="/MyJobs/ListCandidates" element={
+        <Route path="/MyJobs/ListCandidates/:id" element={
           <PrivateRoute>
           <ListCandidatures/>
           </PrivateRoute>

@@ -53,29 +53,14 @@ export const editProfilUser =(user)=>async(dispatch)=>{
         }
     }
     try {
-        const res = await axios.put('/api/accountUser/updateAccountCand',user,config)
-        console.log(res.data)    
+        await axios.put('/api/accountUser/updateAccountCand',user,config)
+            
         dispatch(getCurrent())
     } catch (error) {
         dispatch({type:FAIL})
     }
     } 
 
-//Edit Photo Profil
-export const editPhotoUser =(user)=>async(dispatch)=>{
-    const config={
-        headers:{
-            authorization:localStorage.getItem('token')
-        }
-    }
-    try {
-        const res = await axios.put('/api/accountUser/updatePhotoCand',user,config)
-        console.log(res.data)    
-        dispatch(getCurrent())
-    } catch (error) {
-        dispatch({type:FAIL})
-    }
-    } 
 
     //Edit Password User
     export const editPasswordUser =( updatedPass)=>async(dispatch)=>{
@@ -85,8 +70,7 @@ export const editPhotoUser =(user)=>async(dispatch)=>{
             }
         }
         try {
-            const res = await axios.put('/api/accountUser/updatePasswordCand',updatedPass,config)
-            console.log(res.data)    
+            await axios.put('/api/accountUser/updatePasswordCand',updatedPass,config)               
             dispatch(getCurrent())
         } catch (error) {
             dispatch({type:FAIL})
@@ -102,6 +86,22 @@ export const editPhotoUser =(user)=>async(dispatch)=>{
     try {
         await axios.delete('/api/accountUser/deleteAccountCand',config)           
         dispatch(logout())
+        
+    } catch (error) {
+        dispatch({type:FAIL})
+    }
+    } 
+
+    //Post For Job
+export const PostulerJob =(id,data)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    }
+    try {
+        const res = await axios.post(`/api/accountUser/postuler/${id}`,data,config)
+        console.log(res.data)    
         
     } catch (error) {
         dispatch({type:FAIL})

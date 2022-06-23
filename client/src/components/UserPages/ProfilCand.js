@@ -1,30 +1,28 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { deleteAccountUser } from '../../JS/Actions/userAction'
+import { deleteAccountUser, getCurrent } from '../../JS/Actions/userAction'
 
 function ProfilCand() {
 
   const user = useSelector((state)=>state.authUserReducer.user)
   const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [img, setImg] = useState(null)
-  useEffect(() => {
-    user && setImg(user.imageCand)        
-   }, [user])
+    const [imageCand, setImageCand] = useState(null)
+
   
    const EditPhoto=async()=>{
     const data= new FormData()
-    data.append('imageCand',img)
+    data.append('imageCand',imageCand)
     const config={
-        Headers:{
+        headers:{
             authorization:localStorage.getItem('token')
         }
     }
     try {
-        const res= await axios.put('/api/accountUser/updatePhotoCand',data,config)
-        console.log(res.data)
+         await axios.put('/api/accountUser/updatePhotoCand',data,config)
+        dispatch(getCurrent())
     } catch (error) {
         console.log(error)
         
@@ -39,16 +37,15 @@ function ProfilCand() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img src={user.imageCand} alt=""/>
+                        <img src={user&&user.imageCand ? `images/${user.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
-                                <input type="file" name="file"  onChange={(e)=>setImg(e.target.files(0))}/>
+                                <input type="file" name="file"  onChange={(e)=>setImageCand(e.target.files[0])}/>
                                 
                              </div>
                             
 
                         </div>
-                        {/* <button class="Confirm-Img"  type="button"  onClick={()=>{dispatch(editPhotoUser({img}));navigate('/ProfilCand')}}>submit</button> */}
 
                     </div>
                     <div class="col-md-6">
@@ -72,7 +69,7 @@ function ProfilCand() {
                         
                         <div  class="profile-edit-btn" name="btnAddMore"><Link className='editP' to='/ProfilCand/EditProfil'>Edit Profil</Link></div>
                         <div  class="profile-edit-PS" name="btnAddMore"><Link className='password' to='/ProfilCand/ChangePassword'>Change Password</Link></div>
-                        <div  class="profile-edit-PS" name="Confirm-Img" onClick={EditPhoto}>Change Photo</div>
+                        <div  class="profile-edit-PS Confirm-Img" name="btnAddMore" onClick={EditPhoto}>Change Photo</div>
 
                     </div>
                 </div>

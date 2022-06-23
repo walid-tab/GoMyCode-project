@@ -36,6 +36,17 @@ exports.updateAccountRec=async(req,res)=>{
         res.status(400).send({msg:"could not updated"})        
     }
 }
+//method Update
+// API : /updatePhotoRec
+exports.updatePhotoRec=async(req,res)=>{
+    
+    try {
+        const updated= await Recruteurs.findByIdAndUpdate(req.Recruteur._id, {$set:{...req.body,imageRec:req.file.filename}} ,{new:true})
+    res.status(200).send({msg:"Photo Campany updated successfully",updated})        
+    } catch (error) {
+        res.status(500).send({msg:"could not update photo"})        
+    }
+}
 
 // method Update
 // API : /updatePasswordRec

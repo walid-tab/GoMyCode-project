@@ -25,7 +25,7 @@ try {
     dispatch({type:FAIL, payload:error.response.data})
 }
 } 
-//get_current
+//get_current_Rec
 export const getCurrentRec =()=>async(dispatch)=>{
 const config={
     headers:{
