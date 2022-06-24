@@ -49,6 +49,17 @@ exports.getAllJobs = async(req,res)=>{
         res.status(500).send('could not get Jobs')        
     }
 }
+// method GET
+// API : /FindJobs
+exports.getFindJobs = async(req,res)=>{
+    const {offreName} = req.params
+    try {
+        const allFindJobs = await Offres.find({offreName:offreName}).populate('recruteurId',"-password")
+        res.status(200).send({msg:"list of found Jobs",allFindJobs})
+    } catch (error) {
+        res.status(500).send('could not found Jobs')        
+    }
+}
 
 // method GET
 // API : /myJobs

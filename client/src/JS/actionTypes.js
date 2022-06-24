@@ -8,6 +8,7 @@ export const FAIL = 'FAIL'
 export const EDIT_PROPFIL_USER='PROPFIL_USER'
 export const EDIT_PHOTO_USER='PHOTO_USER'
 export const POSTULER = 'POSTULER'
+export const FIND_JOB='FIND_JOB'
 
 //recruteur ActionTypes
 export const ADD_JOB='ADD_JOB'

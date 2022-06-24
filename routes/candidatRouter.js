@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllJobs, postJob } = require('../controllers/offreController');
+const { getAllJobs, postJob, getFindJobs } = require('../controllers/offreController');
 const { updateAccountCand, deleteAccountCand, getMyProfil, updatePassCand, updatePhotoCand } = require('../controllers/userCrudController');
 const { upload } = require('../middlewares/Upload');
 const { isAuth } = require('../middlewares/validationUser');
@@ -30,6 +30,7 @@ candidatRouter.get('/jobs',getAllJobs)
 //Postuler pour un offre
 //method post
 candidatRouter.post('/postuler/:id',isAuth,postJob)
-
-
+//Rechercher  un offre
+//method get
+candidatRouter.get('/FindJobs/:offreName',isAuth,getFindJobs)
 module.exports = candidatRouter;

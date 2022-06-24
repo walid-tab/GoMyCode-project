@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {  GET_JOBS, MY_JOBS } from '../actionTypes'
+import {  FAIL, FIND_JOB, GET_JOBS, MY_JOBS } from '../actionTypes'
 
 export const getJobs=()=>async(dispatch)=>{
     try {
@@ -62,9 +62,29 @@ export const DeleteJob=(id)=>async(dispatch)=>{
     } 
     try {
         await axios.delete(`/api/accountRec/deleteJob/${id}`,config)
+        
         dispatch(myJobs())
         
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const FindJobs=(data)=>async(dispatch)=>{
+    const config={
+        headers:{
+            authorization:localStorage.getItem('token')
+        }
+    } 
+    try {
+        const res =await axios.get(`/api/accountUser/FindJobs/${data}`,config)
+        console.log(res.data)    
+            dispatch({
+                type : FIND_JOB ,
+                payload : res.data
+            })
+        
+    } catch (error) {
+        dispatch({type:FAIL})
     }
 }

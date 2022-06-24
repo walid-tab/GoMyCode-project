@@ -134,12 +134,11 @@ figure.snip0045.hover > img {
 /* Demo purposes only */
 
 .bodyFound {
- 
-  display: flex;
+ margin-bottom: 20px; 
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
- 
+ top: 0;
   height: 100%;
 }
 

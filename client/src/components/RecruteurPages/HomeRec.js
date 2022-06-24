@@ -1,4 +1,7 @@
 import React , {useState} from 'react'
+import {AiOutlineFacebook, AiOutlineLinkedin, AiOutlineYoutube }from 'react-icons/ai'
+import {FiTwitter} from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {rechercheUser}  from '../../JS/Actions/recAction'
 import FoundUser from './FoundUser'
@@ -25,6 +28,27 @@ function HomeRec() {
             allUsers.map((user,i)=>(< FoundUser  user={user} key={i} /> ))
           }
           </div>
+
+
+          <footer class="footer-content">
+    <h3>Find Job</h3>
+    <p>Build Your Future.</p>
+    <p>Join us & Explore many of Jobs.</p>
+    <ul class="socials">
+    
+    <li><p ><i ><AiOutlineFacebook/></i></p></li>
+    <li><p ><i ><FiTwitter/></i></p></li>
+    <li><p ><i ><AiOutlineLinkedin/></i></p></li>
+    <li><p ><i ><AiOutlineYoutube/></i></p></li>
+ </ul>
+ <p>copyright &copy;2022 <Link className='CopyRight' style={{textDecoration:'none'}} to='/'>FindJob</Link></p>  
+
+
+
+    </footer>
+
+
+
 
     </div>
   )

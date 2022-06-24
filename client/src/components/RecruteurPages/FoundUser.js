@@ -21,6 +21,8 @@ function FoundUser({user}) {
 	</div>
 </figure>
 
+     
+
 
 
     </div>
