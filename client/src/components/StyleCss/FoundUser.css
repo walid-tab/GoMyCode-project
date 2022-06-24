@@ -6,15 +6,18 @@
     align-items: center;
     gap: 20px;
     justify-content: center;
+    margin-bottom: 40px;
 }
 figure.snip0045 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   overflow: hidden;
-  margin: 10px;
+  border-radius: 5px; 
+  width: 420px;
   
-  width: 400px;
-  height: 250px;
+  height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.664);
+
   
   background: #ffffff;
   color: #000000;
@@ -32,11 +35,13 @@ figure.snip0045 > img {
   -webkit-transform: scale(1.6);
   transform: scale(1.6);
   position: relative;
-  left: -15%;
+  left: -20%;
   z-index: 1;
 }
 figure.snip0045 figcaption {
   padding: 20px 30px 20px 20px;
+ 
+  
   position: absolute;
   right: 0;
   width: 50%;
@@ -46,8 +51,15 @@ figure.snip0045 figcaption p {
 
   margin: 0;
   text-align: left;
-  padding: 10px 0;
+  padding: 2px 0;
   width: 100%;
+}
+figure.snip0045 figcaption h3{
+  box-sizing: content-box;
+  word-wrap: break-word;
+  padding: 0;
+
+  background-color: #000000;
 }
 figure.snip0045 figcaption h2 {
   font-size: 1.3em;
@@ -91,9 +103,20 @@ figure.snip0045 .position {
   background: #000000;
 }
 figure.snip0045.blue .position {
+  cursor: pointer;
   background: #20638f;
+  
+}
+figure.snip0045.red .position .linkProfilUser:hover{
+  color: aqua;
+}
+figure.snip0045.red .position .linkProfilUser{
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
 }
 figure.snip0045.red .position {
+  
     background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
 }
 figure.snip0045.yellow .position {
@@ -116,6 +139,12 @@ figure.snip0045.hover > img {
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
-  margin: 0;
+ 
   height: 100%;
+}
+
+.specialite{
+  background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
+  color: #ffffff;
+  
 }

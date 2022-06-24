@@ -37,7 +37,7 @@ function ProfilCand() {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                        <img src={user&&user.imageCand ? `images/${user.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt=""/>
+                        <img src={user&&user.imageCand ? `images/${user.imageCand}`: "https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png"} alt=""/>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
                                 <input type="file" name="file"  onChange={(e)=>setImageCand(e.target.files[0])}/>

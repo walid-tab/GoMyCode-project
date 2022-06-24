@@ -5,6 +5,7 @@ function Home() {
 
 
   return (
+    <div>
     <div className='bodySearch'>  
        <div className='welcome'>Find Your Job</div>      
       <div class="button_box2">
@@ -14,6 +15,11 @@ function Home() {
           </form>
           </div>      
     </div>
+    <footer>
+
+    </footer>
+    </div>
+    
   )
 }
 

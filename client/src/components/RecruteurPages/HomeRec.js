@@ -22,7 +22,7 @@ function HomeRec() {
           </form>
           </div >      
          <div className='Found'> {
-            allUsers.map((user,i)=>(< FoundUser user={user} key={i}/>))
+            allUsers.map((user,i)=>(< FoundUser  user={user} key={i} /> ))
           }
           </div>
 
