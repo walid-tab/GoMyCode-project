@@ -1,13 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getCandidature } from '../../JS/Actions/CandidatureActions';
 import { DeleteJob } from '../../JS/Actions/OffreActions';
 
 function MyJobCard({job}) {
   const dispatch=useDispatch()
   const navigate=useNavigate()
-  const { id } = useParams()
   return (
     <div className='bdCard'>
       

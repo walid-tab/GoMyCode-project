@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FAIL, GET_CURRENT_REC, LOADING, LOGIN_REC, LOGOUT, REGISTER_REC } from '../actionTypes'
+import { FAIL, GET_CURRENT_REC, LOADING, LOGIN_REC, LOGOUT, REGISTER_REC, RECHERCHEUSER } from '../actionTypes'
 
 //Register Recruiter
 export const registerRec =(newRec, navigate)=>async(dispatch)=>{
@@ -93,3 +93,23 @@ export const editProfilRec =(Recruteur)=>async(dispatch)=>{
     } 
 
         
+
+
+    export const rechercheUser =(data)=>async(dispatch)=>{
+        const config={
+            headers:{
+                authorization:localStorage.getItem('token')
+            }
+        }
+        try {
+            const res = await axios.get(`/api/accountRec/CVcandidats/${data}`,config)
+            console.log(res.data)    
+            dispatch({
+                type : RECHERCHEUSER ,
+                payload : res.data
+            })
+        } catch (error) {
+            dispatch({type:FAIL})
+        }
+        } 
+    

@@ -7,7 +7,7 @@ function ListCandidatures() {
   const candidatures = useSelector((state)=>state.CandidatureReducer.offreCandidats)
   console.log(candidatures)
   return (
-    <div className='bodyCard'>
+    <div className='bodyCard10'>
    
     
     {/* <div className="loading" >

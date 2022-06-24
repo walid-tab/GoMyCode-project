@@ -1,8 +1,9 @@
-import { GET_JOBS, MY_JOBS } from "../actionTypes";
+import { GET_JOBS, MY_JOBS , RECHERCHEUSER} from "../actionTypes";
 
 const initialState = {
   allJobs :[],
   load:true,
+  users :[], 
 }
 const OffreReducer= (state = initialState, { type, payload }) => { 
   switch (type) {
@@ -11,7 +12,10 @@ const OffreReducer= (state = initialState, { type, payload }) => {
     case MY_JOBS:   
     return { ...state, allJobs:payload.myJobs,load:false } 
     
-
+    case RECHERCHEUSER : 
+    return {
+      ...state , users:payload.allCandidats
+    }
   default:
     return state
   }

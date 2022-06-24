@@ -42,7 +42,7 @@ recruteurRouter.get('/myJobs',isAuthRec,getMyJobs)
 
 //Rechercher un CV candidat
 //method get 
-recruteurRouter.get('/CVcandidats',isAuthRec,getCvCandidat)
+recruteurRouter.get('/CVcandidats/:specialite',isAuthRec,getCvCandidat)
 
 //Consulter les candidatures réçus
 //method get

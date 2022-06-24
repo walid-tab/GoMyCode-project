@@ -29,7 +29,9 @@ function Candidature() {
       <span>Training</span>
     </div>
     <div class="inputbox">
+      
       <input type="text" required="required" onChange={(e)=>setExperience(e.target.value)} value={experience} />
+      
       <span>Professional Experience</span>
     </div>
     <div class="inputbox">

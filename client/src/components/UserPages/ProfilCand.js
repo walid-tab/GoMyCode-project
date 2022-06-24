@@ -126,6 +126,15 @@ function ProfilCand() {
                                                 <p>{user?.specialite}</p>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Adress</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{user?.adress}</p>
+                                            </div>
+                                        </div>
+
                            
                             
                             </div>

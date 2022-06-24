@@ -71,6 +71,7 @@
   background: dodgerblue;
   color: #fff;
   border: #fff;
+  margin-left: 80px;
 }
 .centerP .inputbox:hover [type="button"] {
   background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
@@ -78,5 +79,24 @@
 }
 .centerP .inputbox [type="text"]{
   color: #000;
+
+}
+.backBtn{
+  cursor: pointer;
+  width: 50%;
+  background: dodgerblue;
+  color: #fff;
+  border: #fff;
+  margin-left: 80px;
+  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  margin-top: -30px;
+
+}
+
+.backBtn:hover{
+  background: linear-gradient(45deg, rgb(47, 206, 255), rgb(3, 30, 58));
 
 }

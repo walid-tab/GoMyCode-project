@@ -42,7 +42,8 @@ const candidatSchema = new mongoose.Schema(
     },
     specialite:{
         type:String,
-        trim:true
+        trim:true,
+        toLowerCase:true
     },
     skills:{
         type:String,

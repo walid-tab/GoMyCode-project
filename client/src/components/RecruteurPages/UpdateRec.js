@@ -25,32 +25,35 @@ function UpdateRec() {
         <div class="centerP">
   <h1>Edit Profil</h1>
   <form>
-    
-    <div class="inputbox">
+  <input className='backBtn' type="button" value="Back" onClick={()=>{navigate('/ProfilRec')}}/>
+
+    <div className="inputbox">
       <input type="text" required="required" onChange={(e)=>setRecruteurName(e.target.value)} value={recruteurName}/>
       <span>Campanie</span>
     </div> 
     
-    <div class="inputbox">
+    <div className="inputbox">
       <input type="text" required="required" onChange={(e)=>setEmail(e.target.value)} value={email} />
       <span>email</span>
     </div>
-    <div class="inputbox">
+    <div className="inputbox">
       <input type="text" required="required" onChange={(e)=>setNumContact(e.target.value)} value={numContact} />
       <span>Contact number</span>
     </div>
-    <div class="inputbox">
+    <div className="inputbox">
       <input type="text" required="required" onChange={(e)=>setAdress(e.target.value)} value={adress} />
       <span>Adress</span>
     </div>
-    <div class="inputbox">
+    <div className="inputbox">
       <input type="text" required="required" onChange={(e)=>setDescription(e.target.value)} value={description}/>
       <span>Description</span>
     </div>
 
-    <div class="inputbox">
+    <div className="inputbox box">
       <input type="button" value="submit" onClick={()=>{dispatch(editProfilRec({recruteurName,adress,description,numContact,email}));navigate('/ProfilRec')}}/>
     </div>
+    
+
   </form>
 </div>
     </div>

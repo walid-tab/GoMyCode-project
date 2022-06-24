@@ -31,7 +31,7 @@ export const GET_MESSAGES = 'GET_MESSAGES'
 export const GET_JOBS = 'GET_JOBS'
 export const MY_JOBS = 'MY_JOBS'
 
-
+export const RECHERCHEUSER = 'RECHERCHEUSER'
 //Candidatures ActionTypes
 export const GET_CANDIDATURE = 'GET_CANDIDATURE'
 export const POST_CANDIDATURE = 'POST_CANDIDATURE'
