@@ -1,13 +1,30 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getCandidature } from '../../JS/Actions/CandidatureActions';
 import { DeleteJob } from '../../JS/Actions/OffreActions';
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 function MyJobCard({job}) {
   const dispatch=useDispatch()
-  const navigate=useNavigate()
-  
+ 
+  const submit = () => {
+    confirmAlert({
+      title: 'Confirm to delete job',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: ()=> {dispatch(DeleteJob(job._id))}
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    });
+  }
   return (
     <div className='bdCard'>
       
@@ -16,7 +33,7 @@ function MyJobCard({job}) {
   <div className="course">
       
       <div class="course-info">
-      <button className='BtnCardDelete'onClick={()=>{dispatch(DeleteJob(job._id));navigate('/MyJobs')}}>Delete Job</button>
+      <button className='BtnCardDelete'onClick={submit}>Delete Job</button>
 
           <h6>Opening Date : {job.dateOuverture}</h6>          
           <h5 style={{marginTop:"15px"}}><h6>Offre</h6>{job.offreName}</h5>

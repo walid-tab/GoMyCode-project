@@ -3,8 +3,8 @@ import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { deleteAccountUser, getCurrent } from '../../JS/Actions/userAction'
-import { confirmAlert } from 'react-confirm-alert' // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from 'react-confirm-alert' 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 
 function ProfilCand() {
@@ -33,9 +33,8 @@ function ProfilCand() {
    }
 
    const submit = () => {
-
     confirmAlert({
-      title: 'Confirm to submit',
+      title: 'Confirm to delete your account',
       message: 'Are you sure to do this.',
       buttons: [
         {
@@ -50,9 +49,7 @@ function ProfilCand() {
     });
   }
   return (
-    <div className='profilUser'>
- 
-
+<div className='profilUser'>
 <div class="containerP emp-profile">
             <form method="post">
                 <div class="row">

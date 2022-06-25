@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { deleteAccountRec, getCurrentRec } from '../../JS/Actions/recAction'
@@ -26,10 +28,25 @@ function ProfilRec() {
         
     }
    }
+
+   const submit = () => {
+    confirmAlert({
+      title: 'Confirm to delete your account',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: ()=> {dispatch(deleteAccountRec());navigate('/')}
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    });
+  }
   return (
     <div className='profilUser'>
- 
-
 <div class="containerP emp-profile">
             <form method="post">
                 <div class="row">
@@ -121,7 +138,7 @@ function ProfilRec() {
                         
                     </div>
                     <div class="col-md-2">
-                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account" onClick={()=>{dispatch(deleteAccountRec());navigate('/')}}/>
+                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account" onClick={submit}/>
                     </div>
                 </div>
                 

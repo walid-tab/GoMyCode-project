@@ -1,19 +1,34 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteOneOffer } from '../../JS/Actions/AdminActions'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 function JobCard({job}) {
   const dispatch = useDispatch()
+  const submit = () => {
+    confirmAlert({
+      title: 'Confirm to delete job',
+      message: 'Are you sure to do this.',
+      buttons: [
+      {
+        label: 'Yes',
+        onClick: ()=> {dispatch(deleteOneOffer(job._id))}
+      },
+      {
+        label: 'No',
+        onClick: () => alert('Click No')
+      }
+      ]
+    });
+    }
 
   return (
-    <div className='bdCard' style={{marginLeft:"25%"}}>
-      
-      
+    <div className='bdCard' style={{marginLeft:"25%"}}>      
     <div className="courses-container" >
-  <div className="course">
-      
+  <div className="course">      
       <div class="course-info">
-      <button className='BtnCardDelete'onClick={()=>{dispatch(deleteOneOffer(job._id))}}>Delete Job</button>
+      <button className='BtnCardDelete'onClick={submit}>Delete Job</button>
 
           <h6>Opening Date : {job.dateOuverture}</h6>          
           <h5 style={{marginTop:"15px"}}><h6>Offre</h6>{job.offreName}</h5>

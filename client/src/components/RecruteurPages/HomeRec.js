@@ -45,7 +45,7 @@ function HomeRec() {
     <li><p ><i ><AiOutlineLinkedin/></i></p></li>
     <li><p ><i ><AiOutlineYoutube/></i></p></li>
  </ul>
- <p>copyright &copy;2022 <Link className='CopyRight' style={{textDecoration:'none'}} to='/'>FindJob</Link></p>  
+ <p>copyright &copy;2022 <Link className='CopyRight' style={{textDecoration:'none'}} to='/HomeRec'>FindJob</Link></p>  
 
 
 

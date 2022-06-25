@@ -35,7 +35,7 @@ function Home() {
     <footer class="footer-content">
     <h3>Find Job</h3>
     <p>Build Your Future.</p>
-    <p>Join us & Explore many of Jobs.</p>
+    <p>Join us & Explore Many Of Jobs.</p>
     <ul class="socials">
     
     <li><p ><i ><AiOutlineFacebook/></i></p></li>
