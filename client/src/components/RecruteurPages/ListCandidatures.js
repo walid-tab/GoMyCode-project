@@ -1,22 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import {useDispatch, useSelector } from 'react-redux'
+import { getCandidature } from '../../JS/Actions/CandidatureActions'
 import CadidatureCard from './CadidatureCard'
-
 function ListCandidatures() {
-  // const loading = useSelector((state)=>state.authUserReducer.load)
+  const loading = useSelector((state)=>state.CandidatureReducer.load)
   const candidatures = useSelector((state)=>state.CandidatureReducer.offreCandidats)
-  console.log(candidatures)
+  const dispatch = useDispatch()
+  useEffect(() => {
+   dispatch( getCandidature())
+  }, [dispatch])
+ 
+  
   return (
-    <div className='bodyCard10'>
-   
-    
-    {/* <div className="loading" >
-    <div className="circle"></div>
-    <div className="circle"></div>
-  <div className="circle"></div>
-     <div className="circle"></div>
-   </div> */}
-  {candidatures.map((candidat,i)=>(< CadidatureCard candidat={candidat} key={i}/>)) }
+    <div className='bodyCard10'> 
+    {loading?   
+   <span class="loader">Loading..</span>
+  :candidatures.map((candidat,i)=>(< CadidatureCard candidat={candidat} key={i}/>)) }
   </div>
   )
 }

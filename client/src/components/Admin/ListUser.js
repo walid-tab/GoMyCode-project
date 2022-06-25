@@ -1,21 +1,20 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getListUsers } from '../../JS/Actions/AdminActions'
 import UserCard from './UserCard'
 
 function ListUser() {
   const loading = useSelector((state)=>state.adminReducer.load)
-  const users = useSelector((state)=>state.adminReducer.allCandidats)
-
+  const users = useSelector((state)=>state.adminReducer.AllUsers)
+  const dispatch = useDispatch()
+  useEffect(() => {
+   dispatch( getListUsers())
+  }, [dispatch])
   return (
     <div style={{margin:'15px',display:'flex', gap:'20px', flexWrap:'wrap'}}>
     {loading? 
     
-    <div className="loading">
-    <div className="circle"></div>
-    <div className="circle"></div>
-    <div className="circle"></div>
-    <div className="circle"></div>
-  </div>
+    <span class="loader">Loading..</span>
     : users.map((user,i)=>(<UserCard user={user} key={i}/>)) }
   </div>
   )

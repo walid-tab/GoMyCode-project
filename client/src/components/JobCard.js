@@ -24,14 +24,6 @@ function JobCard({job}) {
 	</div>
 </div>
 
-
-
-
-  
-
-        
-      
-      
     </div>
 
   )

@@ -102,6 +102,7 @@ function App() {
             <DetailsJob/>
           </PrivateRoute>
         }/>
+        
         <Route path="/Jobs/Details/PostulerJob/:id" element={
           <PrivateRoute>
           <Candidature/>

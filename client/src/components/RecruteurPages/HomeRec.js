@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import {AiOutlineFacebook, AiOutlineLinkedin, AiOutlineYoutube }from 'react-icons/ai'
 import {FiTwitter} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -14,6 +14,10 @@ function HomeRec() {
     dispatch(rechercheUser(search))
     setSearch('')
   }
+  
+  useEffect(() => {
+   dispatch( rechercheUser())
+  }, [dispatch])
   return (
     <div className='bodySearch'>
       

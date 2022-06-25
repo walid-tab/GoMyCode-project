@@ -26,7 +26,7 @@ const offreSchema = new mongoose.Schema({
     dateOuverture : {
             
         type: Date,      
-        default: Date.now         
+                
     },
     dateFermeture : {
         type: Date  

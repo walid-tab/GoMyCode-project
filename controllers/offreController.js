@@ -74,12 +74,24 @@ exports.getMyJobs = async(req,res)=>{
 }
 
 // method GET
+// API : /AllUsers 
+
+exports.getAllUsers = async(req,res)=>{
+    const {specialite} = req.params
+    try {
+        const AllUsers = await users.find({role:"user"}).select("-password")
+        res.status(200).send({msg:"list of Users",AllUsers})
+    } catch (error) {
+        res.status(500).send('could not get Users')        
+    }
+}
+// method GET
 // API : /CVcandidats 
 
 exports.getCvCandidat = async(req,res)=>{
     const {specialite} = req.params
     try {
-        const allCandidats = await users.find({role:"user" , specialite:specialite.toLowerCase()}).select("-password")
+        const allCandidats = await users.find({role:"user" , "$or":[{specialite:{$regex:specialite.toLowerCase().trim()}}]}).select("-password")
         res.status(200).send({msg:"list of Candidats",allCandidats})
     } catch (error) {
         res.status(500).send('could not get Candidats')        
@@ -107,7 +119,7 @@ exports.postJob = async(req,res)=>{
 // API : /candidatures/:id
 exports.getAllCandidatures = async(req,res)=>{
     try {
-        const offreCandidats = await Candidatures.find({offreId:req.params.id}).populate('candidatId',["email","numTel","imageCand"])
+        const offreCandidats = await Candidatures.find({offreId:req.params.id}).populate('candidatId',["email","numTel","imageCand","firstName","lastName","specialite","skills"])
         res.status(200).send({msg:"list of candidats in this job",offreCandidats})
     } catch (error) {
         res.status(500).send('could not get informations of candidats')        

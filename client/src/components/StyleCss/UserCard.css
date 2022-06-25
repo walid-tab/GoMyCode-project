@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .BodyUser{
 		margin-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+}
+.BodyRec{
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 h3 {
 	margin: 10px 0;
@@ -52,6 +59,15 @@ p {
 
 
 .card-container .round {
+	width: 150px;
+	height: 150px;
+	border: 1px solid #03BFCB;
+	border-radius: 50%;
+	padding: 7px;
+}
+.card-container .roundRec {
+	width: 150px;
+	height: 150px;
 	border: 1px solid #03BFCB;
 	border-radius: 50%;
 	padding: 7px;

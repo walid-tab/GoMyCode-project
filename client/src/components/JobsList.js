@@ -1,22 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import JobCard from './JobCard'
-import { useSelector } from 'react-redux'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getJobs } from '../JS/Actions/OffreActions'
 
 function JobsList() {
   const jobs = useSelector((state)=>state.OffreReducer.allJobs)
   const loading = useSelector((state)=>state.OffreReducer.load)
+  const dispatch = useDispatch()
+  useEffect(() => {
+   dispatch( getJobs())
+  }, [dispatch])
   return (
     
     <div className='bodyCard'>
-      {loading? 
-      
-      <div className="loading" >
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-    </div>
+      {loading?       
+      <span class="loader">Loading..</span>
       : jobs.map((job,i)=>(< JobCard job={job} key={i}/>)) }
     </div>
   ) 

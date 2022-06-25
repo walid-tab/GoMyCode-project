@@ -32,5 +32,5 @@ candidatRouter.get('/jobs',getAllJobs)
 candidatRouter.post('/postuler/:id',isAuth,postJob)
 //Rechercher  un offre
 //method get
-candidatRouter.get('/FindJobs/:offreName',isAuth,getFindJobs)
+candidatRouter.get('/FindJobs/:offreName',getFindJobs)
 module.exports = candidatRouter;

@@ -7,6 +7,7 @@ import { DeleteJob } from '../../JS/Actions/OffreActions';
 function MyJobCard({job}) {
   const dispatch=useDispatch()
   const navigate=useNavigate()
+  
   return (
     <div className='bdCard'>
       

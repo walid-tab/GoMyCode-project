@@ -1,7 +1,7 @@
 import { GET_MESSAGES, GET_OFFERS, GET_RECS, GET_USERS } from "../actionTypes";
 
 const initialState = {
-    allCandidats :[],
+    AllUsers :[],
     allRecruteurs: [],
     msgs:[],
     allJobs:[],
@@ -12,7 +12,7 @@ const initialState = {
 const adminReducer= (state = initialState, { type, payload }) => {
   switch (type) {
   case GET_USERS:
-    return { ...state, allCandidats:payload.allCandidats,load:false }
+    return { ...state, AllUsers:payload.AllUsers,load:false }
   case GET_RECS:
       return { ...state, allRecruteurs:payload.allRecruteurs,load:false }
   case GET_MESSAGES:

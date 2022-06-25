@@ -6,10 +6,10 @@ function JobCard({job}) {
   const dispatch = useDispatch()
 
   return (
-    <div className='bdCard'>
+    <div className='bdCard' style={{marginLeft:"25%"}}>
       
       
-    <div className="courses-container">
+    <div className="courses-container" >
   <div className="course">
       
       <div class="course-info">

@@ -1,20 +1,24 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 function CadidatureCard({candidat}) {
-  const navigate = useNavigate()
+  
 
   return (
     <div class="card">
-  <img src={candidat?.candidatId.imageCand ? `images/${candidat.candidatId.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="" style={{width:"100%"}}/>
+  <img src={candidat&&candidat.candidatId.imageCand ? `images/${candidat.candidatId.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="" style={{width:"100%"}}/>
   <div class="container">
     <h4><b>{candidat.candidatId.email}</b></h4>
-    <p><b>Diplome</b> : {candidat.diplome}</p>
+    <p><b>Diplome :</b>  {candidat.diplome}</p>
     <p><b>Experience : </b>{candidat.experience}</p>
     <p><b>Formation : </b>{candidat.formation}</p>
     <p><b>Langues : </b>{candidat.langues}</p>
-    <input style={{marginLeft:"20px"}} class="Delete-Acc" value="Profil" onClick={()=>{navigate('/ProfilCand')}}/>
-    
+
+    <h4> <b>Profil :</b> {candidat.candidatId.firstName} {candidat.candidatId.lastName}</h4>
+    <p> <b>Skills :</b> {candidat.candidatId.skills}</p>
+    <p><b>Specialité : </b>{candidat.candidatId.specialite}</p>
+    <p> <b>Number Phone :</b> {candidat.candidatId.numTel}</p>
+        
   </div>
 </div>
     

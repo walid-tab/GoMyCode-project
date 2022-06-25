@@ -1,6 +1,6 @@
 const express = require('express');
 const { getAllRecruteurs, deleteUser, deleteRecruteur, getMsgs, deleteMsg } = require('../controllers/adminController');
-const { getAllJobs, deleteJob, getCvCandidat } = require('../controllers/offreController');
+const { getAllJobs, deleteJob,  getAllUsers } = require('../controllers/offreController');
 const adminRouter = express.Router();
 const { isAdmin } = require('../middlewares/AuthAdmin');
 const { isAuth } = require('../middlewares/validationUser');
@@ -8,7 +8,7 @@ const { isAuth } = require('../middlewares/validationUser');
 
 //Afficher tous les candidats
 //method Get
-adminRouter.get('/allUsers',isAuth,isAdmin,getCvCandidat) 
+adminRouter.get('/allUsers',isAuth,isAdmin,getAllUsers) 
 
 //Supprimer un candidat
 //method delete
