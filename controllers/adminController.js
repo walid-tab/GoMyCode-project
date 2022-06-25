@@ -11,7 +11,7 @@ exports.deleteUser=async(req,res)=>{
      await users.findByIdAndDelete(req.params.id)
         res.status(200).send({msg:"account user deleted",})
     } catch (error) {
-        res.status(400).send({msg:"could not delete user"}) 
+        res.status(500).send({msg:"could not delete user"}) 
     }
 }
 // method GET
@@ -21,7 +21,7 @@ exports.getAllRecruteurs = async(req,res)=>{
         const allRecruteurs = await Recruteurs.find().select("-password")
         res.status(200).send({msg:"list of Recruiters",allRecruteurs})
     } catch (error) {
-        res.status(400).send('could not get recruiters')        
+        res.status(500).send('could not get recruiters')        
     } 
 }
 // method DELETE
@@ -32,7 +32,7 @@ exports.deleteRecruteur=async(req,res)=>{
         await Offres.deleteMany({recruteurId:req.params.id})
         res.status(200).send({msg:"Recruiter account deleted"})
     } catch (error) {
-        res.status(400).send({msg:"could not delete"})
+        res.status(500).send({msg:"could not delete"})
     }
 }
 //method GET 
@@ -42,7 +42,7 @@ exports.getMsgs = async(req,res)=>{
         const msgs = await contacts.find()
         res.status(200).send({msg:"list of messages",msgs})
     } catch (error) {
-        res.status(400).send('could not get messages')        
+        res.status(500).send('could not get messages')        
     } 
 }
 
@@ -53,7 +53,7 @@ exports.deleteMsg=async(req,res)=>{
         await contacts.findByIdAndDelete(req.params.id)
         res.status(200).send({msg:"Message deleted"})
     } catch (error) {
-        res.status(400).send('could not delete message')        
+        res.status(500).send('could not delete message')        
 
     }
 

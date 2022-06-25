@@ -8,7 +8,7 @@ exports.getMyProfil=async(req,res)=>{
         const myinfo = await users.findById(req.params.id)
         res.status(200).send({msg:"My info : ",myinfo})
     } catch (error) {
-        res.status(400).send('could not get user info')        
+        res.status(500).send('could not get user info')        
     }
 }
 // method Delete
@@ -18,7 +18,7 @@ exports.deleteAccountCand=async(req,res)=>{
      await users.findByIdAndDelete(req.user._id)
         res.status(200).send({msg:"account deleted",})
     } catch (error) {
-        res.status(400).send({msg:"could not delete"}) 
+        res.status(500).send({msg:"could not delete"}) 
     }
 }
 
@@ -30,7 +30,7 @@ exports.updateAccountCand=async(req,res)=>{
         const updated= await users.findByIdAndUpdate(req.user._id, {$set:req.body} ,{new:true})
     res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
-        res.status(400).send({msg:"could not update"})         
+        res.status(500).send({msg:"could not update"})         
     }
 }
 //method Update
@@ -55,6 +55,6 @@ exports.updatePassCand=async(req,res)=>{
 
     res.status(200).send({msg:"password updated successfully",updatedPass})        
     } catch (error) {
-        res.status(400).send({msg:"password not update"})        
+        res.status(500).send({msg:"password not update"})        
     }
 }

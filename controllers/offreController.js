@@ -13,7 +13,7 @@ exports.addJob= async (req,res)=>{
         await newJob.save();
         res.status(200).send({msg:"Job added successfully",newJob})
     } catch (error) {
-        res.status(500).send('could not added')
+        res.status(500).send({msg:'could not added'})
     }
 }
 
@@ -68,7 +68,7 @@ exports.getMyJobs = async(req,res)=>{
         const myJobs = await Offres.find({recruteurId : req.Recruteur.id})
         res.status(200).send({msg:"list of my Jobs",myJobs})
     } catch (error) {
-        res.status(400).send('could not get Jobs')        
+        res.status(500).send('could not get Jobs')        
     }
 }
 

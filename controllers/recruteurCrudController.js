@@ -10,7 +10,7 @@ exports.getMyProfilRec=async(req,res)=>{
         const myInfo = await Recruteurs.findById(req.params.id)
         res.status(200).send({msg:"My info : ",myInfo})
     } catch (error) {
-        res.status(400).send('could not get recruteur info')        
+        res.status(500).send('could not get recruteur info')        
     }
 }
 // method Delete
@@ -21,7 +21,7 @@ exports.deleteAccountRec=async(req,res)=>{
         await Offres.deleteMany({recruteurId:req.Recruteur._id})
         res.status(200).send({msg:"account deleted"})
     } catch (error) {
-        res.status(400).send({msg:"could not delete"})
+        res.status(500).send({msg:"could not delete"})
     }
 }
 
@@ -33,7 +33,7 @@ exports.updateAccountRec=async(req,res)=>{
         const updated=  await Recruteurs.findByIdAndUpdate(req.Recruteur._id,{$set:req.body},{new:true})
     res.status(200).send({msg:"account updated successfully",updated})        
     } catch (error) {
-        res.status(400).send({msg:"could not updated"})        
+        res.status(500).send({msg:"could not updated"})        
     }
 }
 //method Update
@@ -59,6 +59,6 @@ exports.updatePassRec=async(req,res)=>{
 
     res.status(200).send({msg:"password updated successfully",updatedPassRec})        
     } catch (error) {
-        res.status(400).send({msg:"password not updated"})        
+        res.status(500).send({msg:"password not updated"})        
     }
 }
