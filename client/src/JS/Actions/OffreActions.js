@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {  FAIL, FIND_JOB, GET_JOBS, MY_JOBS } from '../actionTypes'
+import { setAlert } from './alertActions'
 
 export const getJobs=()=>async(dispatch)=>{
     try {
@@ -35,7 +36,7 @@ export const addJobs=(newJob)=>async(dispatch)=>{
         dispatch(myJobs())
         
     } catch (error) {
-        console.log(error)
+        error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
     }
 }
 
@@ -86,5 +87,6 @@ export const FindJobs=(data)=>async(dispatch)=>{
         
     } catch (error) {
         dispatch({type:FAIL})
+       
     }
 }

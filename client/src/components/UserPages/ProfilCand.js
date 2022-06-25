@@ -3,6 +3,9 @@ import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { deleteAccountUser, getCurrent } from '../../JS/Actions/userAction'
+import { confirmAlert } from 'react-confirm-alert' // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 function ProfilCand() {
 
@@ -28,6 +31,24 @@ function ProfilCand() {
         
     }
    }
+
+   const submit = () => {
+
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: ()=> {dispatch(deleteAccountUser());navigate('/')}
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    });
+  }
   return (
     <div className='profilUser'>
  
@@ -143,7 +164,7 @@ function ProfilCand() {
                         
                     </div>
                     <div class="col-md-2">
-                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"  onClick={()=>{dispatch(deleteAccountUser());navigate('/')}}/>
+                        <input  class="Delete-Acc" style={{marginTop:"40px",marginLeft:'40px'}} name="btnAddMore" value="Delete Account"  onClick={submit}/>
                     </div>
                 </div>
                 

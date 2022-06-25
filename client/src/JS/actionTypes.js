@@ -40,6 +40,9 @@ export const POST_CANDIDATURE = 'POST_CANDIDATURE'
 //Guest ActionsTypes
 export const POST_MESSAGE='POST_MESSAGE'
 
+//Alert ActionsTypes
+export const SETALERT='SETALERT'
+export const REMOVEALERT='REMOVEALERT'
 
 
 

@@ -16,6 +16,7 @@ import './components/StyleCss/UserCard.css'
 import './components/StyleCss/MessageCard.css'
 import './components/StyleCss/candidaturecard.css'
 import './components/StyleCss/FoundUser.css'
+import './components/StyleCss/Alert.css'
 
 
 import { Provider } from 'react-redux';

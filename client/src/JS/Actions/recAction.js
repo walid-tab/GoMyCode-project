@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { FAIL, GET_CURRENT_REC, LOADING, LOGIN_REC, LOGOUT, REGISTER_REC, RECHERCHEUSER } from '../actionTypes'
+import { setAlert } from "./alertActions"
 
 //Register Recruiter
 export const registerRec =(newRec, navigate)=>async(dispatch)=>{
@@ -12,6 +13,7 @@ try {
     navigate('/ProfilRec')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
+    error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
 }
 }
 //Login Recruiter
@@ -23,6 +25,7 @@ try {
     navigate('/MyJobs')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
+    error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
 }
 } 
 //get_current_Rec
@@ -73,6 +76,7 @@ export const editProfilRec =(Recruteur)=>async(dispatch)=>{
             dispatch(getCurrentRec())
         } catch (error) {
             dispatch({type:FAIL})
+            error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
         }
         } 
 
@@ -90,11 +94,8 @@ export const editProfilRec =(Recruteur)=>async(dispatch)=>{
     } catch (error) {
         dispatch({type:FAIL})
     }
-    } 
-
-        
-
-
+    }
+    
     export const rechercheUser =(data)=>async(dispatch)=>{
         const config={
             headers:{

@@ -1,5 +1,6 @@
 import { FAIL, GET_CURRENT, LOADING, LOGIN, LOGOUT, REGISTER } from "../actionTypes"
 import axios from 'axios'
+import { setAlert } from "./alertActions"
 
 //Register Candidat
 export const register =(newUser, navigate)=>async(dispatch)=>{
@@ -8,9 +9,12 @@ try {
     const res = await axios.post('/api/authUser/register',newUser)
     
     dispatch({type:REGISTER, payload:res.data})
+   
     navigate('/ProfilCand')
 } catch (error) {
     dispatch({type:FAIL, payload:error.response.data})
+    error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
+
 }
 }
 //Login candidat
@@ -23,7 +27,8 @@ try {
     
     navigate('/')
 } catch (error) {
-    dispatch({type:FAIL, payload:error.response.data})
+    dispatch({type:FAIL})
+    error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
 }
 } 
 //get_current
@@ -74,6 +79,7 @@ export const editProfilUser =(user)=>async(dispatch)=>{
             dispatch(getCurrent())
         } catch (error) {
             dispatch({type:FAIL})
+            error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
         }
         } 
  //Delete Account User
@@ -86,6 +92,7 @@ export const editProfilUser =(user)=>async(dispatch)=>{
     try {
         await axios.delete('/api/accountUser/deleteAccountCand',config)           
         dispatch(logout())
+        
         
     } catch (error) {
         dispatch({type:FAIL})

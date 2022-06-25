@@ -4,8 +4,9 @@ import authRecReducer from './authRecReducer'
 import OffreReducer from './OffreReducer'
 import CandidatureReducer from './CandidatureReducer'
 import adminReducer from './adminReducer'
+import alert from './alertReducer'
 const rootReducer = combineReducers({
-    authUserReducer,authRecReducer, OffreReducer,CandidatureReducer,adminReducer
+    authUserReducer,authRecReducer, OffreReducer,CandidatureReducer,adminReducer, alert
 })
 
 export default rootReducer

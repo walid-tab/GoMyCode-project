@@ -28,6 +28,7 @@ import ListUser from "./components/Admin/ListUser";
 import ListRec from "./components/Admin/ListRec";
 import ListMessages from "./components/Admin/ListMessages";
 import ListJobs from "./components/Admin/ListJobs";
+import Alert from "./components/Alert/Alert";
 
  
 
@@ -46,6 +47,7 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
+      <Alert/>
       
       <Routes>
         {/* Guest Route */}

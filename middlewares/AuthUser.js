@@ -13,6 +13,7 @@ exports.loginValidation = [
     body('password',"password must be at least 8 caracter").isLength({ min: 8 }).trim(),
 ];
 
+
 exports.validation =(req,res,next)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
