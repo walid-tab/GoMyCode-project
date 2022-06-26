@@ -1,5 +1,6 @@
 import axios from "axios"
 import { FAIL, POST_MESSAGE } from "../actionTypes"
+import { setAlert } from "./alertActions"
 
 export const postMSG =( newMsg)=>async(dispatch)=>{
     try {
@@ -8,5 +9,6 @@ export const postMSG =( newMsg)=>async(dispatch)=>{
         dispatch({type:POST_MESSAGE, payload: res.data})
     } catch (error) {
         dispatch({type:FAIL})
+        error.response.data.errors.forEach(error => dispatch(setAlert(error.msg)));
     }
     } 

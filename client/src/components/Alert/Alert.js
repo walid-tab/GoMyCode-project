@@ -8,7 +8,7 @@ function Alert() {
        { alerts.map(alert=>
        <div>        
               
-                <section>
+                <section className='aler'>
                         <div className="square_box box_three"></div>
                         <div className="square_box box_four"></div>
                         <div className="container mt-5">

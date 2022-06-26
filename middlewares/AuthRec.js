@@ -12,6 +12,9 @@ exports.loginValidationRec = [
     body("email","please make a correct email").isEmail().trim(),
     body('password',"password must be at least 8 caracter").isLength({ min: 8 }).trim(),
 ];
+exports.passwordValidationRec = [
+    body('password',"Password must be at least 8 caracter").isLength({ min: 8 }).trim(),
+];
 
 exports.validationRec =(req,res,next)=>{
     const errors = validationResult(req);

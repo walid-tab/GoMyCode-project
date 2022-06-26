@@ -16,7 +16,12 @@ function ContactUs() {
 			
 	</div>
 	<div class="row">
-			<h1 style={{textAlign:"center"}}>Contact Us</h1>
+	
+        <div class="centerP cen" style={{margin:"0px",padding:'0px'}}>
+		<h1 >Contact Us</h1>
+  </div>
+  
+			{/* <h1 style={{textAlign:"center"}}>Contact Us</h1> */}
 	</div>
 	<div class="row input-container">
 			<div class="col-xs-12">

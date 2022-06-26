@@ -6,7 +6,7 @@ function CadidatureCard({candidat}) {
 
   return (
     <div class="card">
-  <img src={candidat&&candidat.candidatId.imageCand ? `images/${candidat.candidatId.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="" style={{width:"100%"}}/>
+  {/* <img src={candidat&&candidat.candidatId.imageCand ? `images/${candidat.candidatId.imageCand}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="" style={{width:"100%"}}/> */}
   <div class="container">
     <h4><b>{candidat.candidatId.email}</b></h4>
     <p><b>Diplome :</b>  {candidat.diplome}</p>

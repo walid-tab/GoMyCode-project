@@ -77,7 +77,7 @@ function Navigation() {
    :
   <div className="nav-links">
   <div><Link  className='titreNav'to='/'><AiOutlineHome />Home</Link></div>
-  <div><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}>Jobs</Link></div>
+  <div><Link  className='titreNav'to='/Jobs' onClick={()=>dispatch(getJobs())}><MdOutlineLocalOffer/>Jobs</Link></div>
   <div><Link  className='titreNav'to='/Contact'><AiOutlineContacts />Contact Us</Link></div>
   <div><Link className="btn" to='/AccountUser'><FaSignInAlt/>Account User</Link></div>
   <div><Link className="btn" to='/AccountRec'><FaSignInAlt />Account Recruiter</Link></div>

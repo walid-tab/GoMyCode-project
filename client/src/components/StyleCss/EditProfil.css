@@ -21,6 +21,13 @@
   background: #fff;
   border-radius: 10px;
 }
+.centerP.cen {
+  margin-top: 5vh;
+  position: relative;
+  padding: 70px 70px;
+  background: #fff;
+  border-radius: 10px;
+}
 .centerP h1 {
   font-size: 2em;
   border-left: 5px solid dodgerblue;

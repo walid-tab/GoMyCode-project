@@ -9,13 +9,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function ProfilCand() {
 
-  const user = useSelector((state)=>state.authUserReducer.user)
-  const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const [imageCand, setImageCand] = useState(null)
+const user = useSelector((state)=>state.authUserReducer.user)
+const dispatch = useDispatch()
+const navigate = useNavigate()
+const [imageCand, setImageCand] = useState(null)
 
-  
-   const EditPhoto=async()=>{
+    const EditPhoto=async()=>{
     const data= new FormData()
     data.append('imageCand',imageCand)
     const config={
@@ -31,7 +30,7 @@ function ProfilCand() {
         
     }
    }
-
+//confirmation before delete account
    const submit = () => {
     confirmAlert({
       title: 'Confirm to delete your account',

@@ -18,6 +18,8 @@ function AddJob() {
         <div class="centerP">
   <h1>Add Job</h1>
   <form>    
+  <input className='backBtn' type="button" value="Back" onClick={()=>{navigate('/MyJobs')}}/>
+
     <div class="inputbox">
       <input type="text" required="required"  onChange={(e)=>setOffreName(e.target.value)} value={offreName} />
       <span>Job Name</span>

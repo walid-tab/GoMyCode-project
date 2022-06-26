@@ -8,6 +8,6 @@ exports.addContact= async (req,res)=>{
         await newMsg.save();
         res.status(200).send({msg:"Message sent successfully",newMsg})
     } catch (error) {
-        res.status(500).send('could not send the message')
+        res.status(500).send({msg :'could not send the message'})
     }
 }

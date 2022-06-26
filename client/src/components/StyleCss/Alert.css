@@ -1,4 +1,6 @@
-
+.aler{
+  margin-bottom: 5px;
+}
 
 .alert>.start-icon {
     margin-right: 0;
@@ -87,6 +89,7 @@
     text-shadow: 2px 1px #00040a;
   transition:0.5s;
   cursor:pointer;
+  
 }
 
 .alert-danger:hover
@@ -97,7 +100,7 @@
 
 .danger
 {
-      font-size: 18px;
+    font-size: 18px;
     color: #ff0303;
     text-shadow: none;
 }
@@ -170,7 +173,8 @@
     left: 0;
     top: 50%;
     transform: translate(0,-50%);
-      height: 20px;
+    height: 20px;
+  
 }
 
 .fa-times
